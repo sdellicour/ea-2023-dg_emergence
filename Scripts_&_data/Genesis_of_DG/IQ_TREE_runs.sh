@@ -1,0 +1,9 @@
+IQTREE_v_1_6_12/iqtree -s ALL_030624_2.fas -m MFP -mem 10Go -mset GTR -nt 4 -b 100
+IQTREE_v_1_6_12/iqtree -s HA_030624_2.fas -m MFP -mem 10Go -mset GTR -nt 4 -b 100
+IQTREE_v_1_6_12/iqtree -s MP_030624_2.fas -m MFP -mem 10Go -mset GTR -nt 4 -b 100
+IQTREE_v_1_6_12/iqtree -s NA_030624_2.fas -m MFP -mem 10Go -mset GTR -nt 4 -b 100
+IQTREE_v_1_6_12/iqtree -s NP_030624_2.fas -m MFP -mem 10Go -mset GTR -nt 4 -b 100
+IQTREE_v_1_6_12/iqtree -s NS_030624_2.fas -m MFP -mem 10Go -mset GTR -nt 4 -b 100
+IQTREE_v_1_6_12/iqtree -s PA_030624_2.fas -m MFP -mem 10Go -mset GTR -nt 4 -b 100
+IQTREE_v_1_6_12/iqtree -s PB1_030624_2.fas -m MFP -mem 10Go -mset GTR -nt 4 -b 100
+IQTREE_v_1_6_12/iqtree -s PB2_030624_2.fas -m MFP -mem 10Go -mset GTR -nt 4 -b 100

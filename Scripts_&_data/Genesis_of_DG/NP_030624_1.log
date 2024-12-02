@@ -1,0 +1,877 @@
+IQ-TREE multicore version 1.6.12 for Mac OS X 64-bit built Aug 15 2019
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    Simons-MBP-5.local (SSE4.2, 128 GB RAM)
+Command: IQTREE_v_1_6_12/iqtree -s NP_030624_2.fas -m MFP -mem 10Go -mset GTR -nt 4
+Seed:    370243 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Mon Jun 24 10:49:57 2024
+Kernel:  SSE2 - 4 threads (16 CPU cores detected)
+
+Reading alignment file NP_030624_2.fas ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 530 sequences with 1565 columns, 364 distinct patterns
+158 parsimony-informative, 173 singleton sites, 1234 constant sites
+WARNING: Some sequence names are changed as follows:
+EPI_ISL_19090717  -> EPI_ISL_19090717__
+
+                    Gap/Ambiguity  Composition  p-value
+   1  EPI_ISL_18789944      0.00%    passed     99.41%
+   2  EPI_ISL_18824085      0.00%    passed     98.91%
+   3  EPI_ISL_18788080      1.60%    passed     98.51%
+   4  EPI_ISL_18668242      0.83%    passed     98.47%
+   5  EPI_ISL_18824201      0.00%    passed     99.20%
+   6  EPI_ISL_18789928      0.00%    passed     99.02%
+   7  EPI_ISL_18607170      0.83%    passed     98.47%
+   8  EPI_ISL_18660931      0.00%    passed     99.41%
+   9  EPI_ISL_18885828      1.60%    passed     98.06%
+  10  EPI_ISL_18885854      1.60%    passed     98.34%
+  11  EPI_ISL_18885855      1.60%    passed     98.46%
+  12  EPI_ISL_18815363      0.00%    passed     99.62%
+  13  EPI_ISL_18815362      0.00%    passed     99.89%
+  14  EPI_ISL_18866885      0.00%    passed     98.08%
+  15  EPI_ISL_19033339      1.60%    passed     98.75%
+  16  EPI_ISL_19033563      1.60%    passed     98.51%
+  17  EPI_ISL_19033337      1.66%    passed     97.88%
+  18  EPI_ISL_19033340      1.60%    passed     97.64%
+  19  EPI_ISL_18745084      1.60%    passed     99.00%
+  20  EPI_ISL_18937346      0.00%    passed     99.20%
+  21  EPI_ISL_18937347      1.60%    passed     98.75%
+  22  EPI_ISL_18937350      1.60%    passed     99.18%
+  23  EPI_ISL_18862265      0.00%    passed     99.55%
+  24  EPI_ISL_18937352      1.60%    passed     98.34%
+  25  EPI_ISL_18862261      0.00%    passed     98.91%
+  26  EPI_ISL_18862260      0.00%    passed     99.20%
+  27  EPI_ISL_18862259      0.00%    passed     99.20%
+  28  EPI_ISL_18862258      0.00%    passed     99.60%
+  29  EPI_ISL_18862257      0.00%    passed     98.91%
+  30  EPI_ISL_18745073      1.60%    passed     99.00%
+  31  EPI_ISL_18862255      0.00%    passed     99.36%
+  32  EPI_ISL_18745071      1.66%    passed     99.13%
+  33  EPI_ISL_18937339      0.00%    passed     99.20%
+  34  EPI_ISL_18937340      0.00%    passed     98.54%
+  35  EPI_ISL_18937342      0.00%    passed     98.91%
+  36  EPI_ISL_19014081      1.60%    passed     99.18%
+  37  EPI_ISL_19014086      1.60%    passed     98.85%
+  38  EPI_ISL_18745078      1.60%    passed     99.00%
+  39  EPI_ISL_19090717__    2.30%    passed     97.95%
+  40  EPI_ISL_18937344      1.60%    passed     99.70%
+  41  EPI_ISL_18937345      1.60%    passed     99.76%
+  42  EPI_ISL_18937348      1.60%    passed     99.21%
+  43  EPI_ISL_18937349      1.60%    passed     99.52%
+  44  EPI_ISL_18937351      1.60%    passed     99.93%
+  45  EPI_ISL_18862264      0.00%    passed     99.65%
+  46  EPI_ISL_18862262      0.00%    passed     99.73%
+  47  EPI_ISL_18862256      0.00%    passed     99.87%
+  48  EPI_ISL_18745069      1.66%    passed     99.75%
+  49  EPI_ISL_18937338      0.00%    passed     99.36%
+  50  EPI_ISL_18937343      1.60%    passed     99.62%
+  51  EPI_ISL_18745079      1.60%    passed     99.97%
+  52  EPI_ISL_19030162     88.24%    passed     98.22%
+  53  EPI_ISL_19000792      0.83%    passed     98.47%
+  54  EPI_ISL_18918529      0.00%    passed     99.36%
+  55  EPI_ISL_18918527      0.00%    passed     99.36%
+  56  EPI_ISL_19000795      0.83%    passed     99.13%
+  57  EPI_ISL_18918508      0.00%    passed     98.74%
+  58  EPI_ISL_18918472      0.00%    passed     98.08%
+  59  EPI_ISL_18918493      0.00%    passed     97.78%
+  60  EPI_ISL_18918470      0.00%    passed     99.20%
+  61  EPI_ISL_18824089      0.00%    passed     99.91%
+  62  EPI_ISL_18918530      0.00%    passed     99.73%
+  63  EPI_ISL_18788075      0.00%    passed     99.81%
+  64  EPI_ISL_18750725      0.00%    passed     99.97%
+  65  EPI_ISL_18514137      0.00%    passed     99.81%
+  66  EPI_ISL_18514134      0.00%    passed     99.81%
+  67  EPI_ISL_18750129      0.00%    passed     99.90%
+  68  EPI_ISL_18750748      0.96%    passed     98.95%
+  69  EPI_ISL_18787984      0.00%    passed     99.40%
+  70  EPI_ISL_18673081      1.60%    passed     99.70%
+  71  EPI_ISL_18668522      0.00%    passed     99.75%
+  72  EPI_ISL_18592434      0.00%    passed     99.84%
+  73  EPI_ISL_18592418      0.00%    passed     99.84%
+  74  EPI_ISL_18592414      0.00%    passed     99.84%
+  75  EPI_ISL_19033559      1.60%    passed     99.52%
+  76  EPI_ISL_18885826      1.60%    passed     99.52%
+  77  EPI_ISL_18885839      1.60%    passed     99.52%
+  78  EPI_ISL_18824185      0.06%    passed     99.95%
+  79  EPI_ISL_18788100      1.60%    passed     99.52%
+  80  EPI_ISL_18787920      0.00%    passed     99.07%
+  81  EPI_ISL_18787919      1.60%    passed     99.52%
+  82  EPI_ISL_18787914      1.60%    passed     99.52%
+  83  EPI_ISL_18668523      0.00%    passed     99.82%
+  84  EPI_ISL_18668521      0.00%    passed     99.55%
+  85  EPI_ISL_18514132      0.00%    passed     99.65%
+  86  EPI_ISL_18815277      0.13%    passed     99.93%
+  87  EPI_ISL_18787918      1.66%    passed     99.48%
+  88  EPI_ISL_19033548      1.60%    passed     99.70%
+  89  EPI_ISL_18885873      1.60%    passed     99.70%
+  90  EPI_ISL_18824087      0.00%    passed     99.85%
+  91  EPI_ISL_18788061      0.00%    passed     99.19%
+  92  EPI_ISL_18787970      1.60%    passed     99.48%
+  93  EPI_ISL_18787953      1.60%    passed     99.43%
+  94  EPI_ISL_18668524      0.00%    passed     99.41%
+  95  EPI_ISL_18668518      0.00%    passed     99.41%
+  96  EPI_ISL_18592421      0.00%    passed     99.84%
+  97  EPI_ISL_18592420      0.00%    passed     99.84%
+  98  EPI_ISL_18668515      0.89%    passed     98.27%
+  99  EPI_ISL_18788087      1.66%    passed     99.44%
+ 100  EPI_ISL_19033561      1.60%    passed     99.30%
+ 101  EPI_ISL_19033560      1.60%    passed     99.30%
+ 102  EPI_ISL_19033558      1.60%    passed     99.67%
+ 103  EPI_ISL_19033553      1.60%    passed     99.67%
+ 104  EPI_ISL_19033550      1.60%    passed     99.67%
+ 105  EPI_ISL_19033336      1.60%    passed     99.67%
+ 106  EPI_ISL_19033335      1.60%    passed     99.67%
+ 107  EPI_ISL_19033333      1.60%    passed     99.67%
+ 108  EPI_ISL_19033331      1.60%    passed     99.67%
+ 109  EPI_ISL_18885547      1.60%    passed     99.30%
+ 110  EPI_ISL_18866887      0.00%    passed     99.97%
+ 111  EPI_ISL_18866883      0.00%    passed     99.97%
+ 112  EPI_ISL_18824088      0.00%    passed     99.85%
+ 113  EPI_ISL_18787923      1.60%    passed     99.30%
+ 114  EPI_ISL_18787916      1.60%    passed     99.16%
+ 115  EPI_ISL_18745080      1.60%    passed     99.68%
+ 116  EPI_ISL_18660932      0.00%    passed     99.97%
+ 117  EPI_ISL_18660623      1.60%    passed     99.68%
+ 118  EPI_ISL_18536663      1.60%    passed     99.68%
+ 119  EPI_ISL_18530147      1.60%    passed     99.68%
+ 120  EPI_ISL_18506032      1.60%    passed     99.68%
+ 121  EPI_ISL_18506030      1.60%    passed     99.68%
+ 122  EPI_ISL_19033556      1.66%    passed     99.48%
+ 123  EPI_ISL_19033551      1.66%    passed     99.82%
+ 124  EPI_ISL_19033555      1.60%    passed     99.76%
+ 125  EPI_ISL_19033554      1.60%    passed     99.51%
+ 126  EPI_ISL_19033546      1.60%    passed     99.51%
+ 127  EPI_ISL_19033332      1.60%    passed     99.51%
+ 128  EPI_ISL_19000790      0.83%    passed     98.35%
+ 129  EPI_ISL_18885871      1.60%    passed     99.76%
+ 130  EPI_ISL_18866893      0.00%    passed     99.90%
+ 131  EPI_ISL_18789904      0.00%    passed     99.90%
+ 132  EPI_ISL_18745082      1.60%    passed     99.78%
+ 133  EPI_ISL_18729430      1.60%    passed     99.80%
+ 134  EPI_ISL_18668520      0.00%    passed     99.91%
+ 135  EPI_ISL_18530058      1.60%    passed     99.78%
+ 136  EPI_ISL_18526630      1.60%    passed     99.78%
+ 137  EPI_ISL_18506029      1.60%    passed     99.80%
+ 138  EPI_ISL_16956376      0.00%    passed     99.93%
+ 139  EPI_ISL_19090725      2.30%    passed     98.62%
+ 140  EPI_ISL_19033334      1.66%    passed     99.68%
+ 141  EPI_ISL_18946738      2.30%    passed     97.78%
+ 142  EPI_ISL_19014080      1.60%    passed     99.53%
+ 143  EPI_ISL_18824086      0.00%    passed     99.83%
+ 144  EPI_ISL_18729429      1.60%    passed     99.51%
+ 145  EPI_ISL_18729428      1.60%    passed     99.51%
+ 146  EPI_ISL_18729427      1.60%    passed     99.51%
+ 147  EPI_ISL_18729401      1.60%    passed     99.51%
+ 148  EPI_ISL_18729400      1.60%    passed     99.51%
+ 149  EPI_ISL_18729387      1.60%    passed     99.51%
+ 150  EPI_ISL_18729386      1.60%    passed     99.51%
+ 151  EPI_ISL_18729385      1.60%    passed     99.51%
+ 152  EPI_ISL_18911084      1.09%    passed     99.46%
+ 153  EPI_ISL_19044793      2.30%    passed     97.83%
+ 154  EPI_ISL_19044792      2.30%    passed     97.83%
+ 155  EPI_ISL_19044791      2.30%    passed     97.83%
+ 156  EPI_ISL_18946743      2.30%    passed     97.83%
+ 157  EPI_ISL_18946742      2.30%    passed     97.83%
+ 158  EPI_ISL_18946741      2.30%    passed     97.83%
+ 159  EPI_ISL_18946740      2.30%    passed     97.83%
+ 160  EPI_ISL_18946739      2.30%    passed     97.83%
+ 161  EPI_ISL_18946737      2.30%    passed     97.83%
+ 162  EPI_ISL_18946736      2.30%    passed     97.83%
+ 163  EPI_ISL_18946735      2.30%    passed     97.83%
+ 164  EPI_ISL_18946734      2.30%    passed     97.83%
+ 165  EPI_ISL_18946733      2.30%    passed     97.83%
+ 166  EPI_ISL_18928989      2.30%    passed     97.83%
+ 167  EPI_ISL_18928987      2.30%    passed     97.83%
+ 168  EPI_ISL_18928986      2.30%    passed     97.83%
+ 169  EPI_ISL_18928985      2.30%    passed     97.83%
+ 170  EPI_ISL_18928984      2.30%    passed     97.83%
+ 171  EPI_ISL_18928983      2.30%    passed     97.83%
+ 172  EPI_ISL_18745077      1.66%    passed     99.46%
+ 173  EPI_ISL_16384147      0.32%    passed     99.99%
+ 174  EPI_ISL_18866891      0.00%    passed     99.81%
+ 175  EPI_ISL_18866888      0.00%    passed     99.81%
+ 176  EPI_ISL_18593867      1.60%    passed     99.76%
+ 177  EPI_ISL_17710023      0.00%    passed     99.98%
+ 178  EPI_ISL_17072781      0.00%    passed     99.98%
+ 179  EPI_ISL_17072337      0.00%    passed     99.98%
+ 180  EPI_ISL_18916730      0.06%    passed     99.97%
+ 181  EPI_ISL_19090722      2.30%    passed     99.57%
+ 182  EPI_ISL_18928988      2.30%    passed     97.96%
+ 183  EPI_ISL_17710025      0.00%    passed     99.94%
+ 184  EPI_ISL_17564760      0.13%    passed     99.95%
+ 185  EPI_ISL_19014079      1.60%    passed     99.16%
+ 186  EPI_ISL_18788325      1.60%    passed     99.73%
+ 187  EPI_ISL_18787921      1.60%    passed     99.11%
+ 188  EPI_ISL_18593865      1.60%    passed     99.93%
+ 189  EPI_ISL_18660625      1.66%    passed     99.87%
+ 190  EPI_ISL_18815329      0.00%    passed     99.92%
+ 191  EPI_ISL_18536647      1.60%    passed     99.87%
+ 192  EPI_ISL_18530057      1.60%    passed     99.93%
+ 193  EPI_ISL_16574756      0.64%    passed     99.58%
+ 194  EPI_ISL_16574736      0.00%    passed     99.98%
+ 195  EPI_ISL_16574657      0.83%    passed     99.36%
+ 196  EPI_ISL_16384179      0.26%    passed    100.00%
+ 197  EPI_ISL_17716082      0.06%    passed     99.95%
+ 198  EPI_ISL_17716080      0.06%    passed     99.95%
+ 199  EPI_ISL_17716059      0.06%    passed     99.95%
+ 200  EPI_ISL_17514172      0.06%    passed     99.95%
+ 201  EPI_ISL_17514171      0.06%    passed     99.95%
+ 202  EPI_ISL_17072339      0.19%    passed     99.97%
+ 203  EPI_ISL_19053265      0.19%    passed     99.63%
+ 204  EPI_ISL_18911091      0.83%    passed     99.32%
+ 205  EPI_ISL_18746298      1.60%    passed     99.89%
+ 206  EPI_ISL_18536649      1.60%    passed     99.98%
+ 207  EPI_ISL_18271512      1.60%    passed     99.71%
+ 208  EPI_ISL_17514168      0.00%    passed     99.97%
+ 209  EPI_ISL_17514167      0.00%    passed     99.97%
+ 210  EPI_ISL_16969355      0.00%    passed     99.99%
+ 211  EPI_ISL_15586113      0.00%    passed     99.98%
+ 212  EPI_ISL_15585760      0.06%    passed     99.97%
+ 213  EPI_ISL_15585749      0.00%    passed     99.98%
+ 214  EPI_ISL_17514175      0.06%    passed     99.93%
+ 215  EPI_ISL_15957666      0.13%    passed     99.97%
+ 216  EPI_ISL_15586126      0.13%    passed     99.97%
+ 217  EPI_ISL_15585841      0.13%    passed     99.97%
+ 218  EPI_ISL_18660629      1.60%    passed     99.52%
+ 219  EPI_ISL_18271511      1.60%    passed     99.52%
+ 220  EPI_ISL_17514174      0.00%    passed     99.94%
+ 221  EPI_ISL_17514134      0.00%    passed     99.90%
+ 222  EPI_ISL_16904551      0.00%    passed     99.74%
+ 223  EPI_ISL_16384178      0.38%    passed     99.76%
+ 224  EPI_ISL_15957678      0.00%    passed     99.90%
+ 225  EPI_ISL_13369783      0.00%    passed     99.89%
+ 226  EPI_ISL_13369753      0.00%    passed     99.89%
+ 227  EPI_ISL_13369747      0.00%    passed     99.89%
+ 228  EPI_ISL_9651560       0.00%    passed     99.89%
+ 229  EPI_ISL_16574697      0.38%    passed     99.96%
+ 230  EPI_ISL_15957837      0.06%    passed    100.00%
+ 231  EPI_ISL_15957785      0.06%    passed    100.00%
+ 232  EPI_ISL_18063923      0.06%    passed     99.89%
+ 233  EPI_ISL_17716062      0.06%    passed     99.89%
+ 234  EPI_ISL_17716061      0.13%    passed     99.88%
+ 235  EPI_ISL_17716060      0.06%    passed     99.89%
+ 236  EPI_ISL_17716057      0.06%    passed     99.89%
+ 237  EPI_ISL_16384140      0.13%    passed     99.95%
+ 238  EPI_ISL_16384139      0.00%    passed     99.99%
+ 239  EPI_ISL_15957792      0.13%    passed    100.00%
+ 240  EPI_ISL_15957672      0.13%    passed    100.00%
+ 241  EPI_ISL_15585911      0.06%    passed     99.98%
+ 242  EPI_ISL_15585910      0.32%    passed    100.00%
+ 243  EPI_ISL_15585758      0.51%    passed     99.88%
+ 244  EPI_ISL_13370505      0.13%    passed     99.81%
+ 245  EPI_ISL_13369762      0.13%    passed     99.81%
+ 246  EPI_ISL_18536648      1.60%    passed     99.38%
+ 247  EPI_ISL_17774063      0.70%    passed     98.83%
+ 248  EPI_ISL_17514139      0.00%    passed     99.88%
+ 249  EPI_ISL_17514138      0.00%    passed     99.88%
+ 250  EPI_ISL_17514136      0.00%    passed     99.88%
+ 251  EPI_ISL_16811201      0.19%    passed     99.95%
+ 252  EPI_ISL_16384199      0.00%    passed     99.93%
+ 253  EPI_ISL_16384150      0.38%    passed     99.81%
+ 254  EPI_ISL_15957919      0.00%    passed     99.58%
+ 255  EPI_ISL_15957906      0.13%    passed     99.92%
+ 256  EPI_ISL_15957731      0.00%    passed     99.87%
+ 257  EPI_ISL_15957708      0.00%    passed     99.87%
+ 258  EPI_ISL_15586134      0.00%    passed     99.92%
+ 259  EPI_ISL_15586116      0.00%    passed     99.87%
+ 260  EPI_ISL_15585906      0.00%    passed     99.87%
+ 261  EPI_ISL_15585753      0.19%    passed     99.95%
+ 262  EPI_ISL_14864638      0.00%    passed     99.94%
+ 263  EPI_ISL_14390100      0.00%    passed     99.94%
+ 264  EPI_ISL_13370704      0.00%    passed     99.97%
+ 265  EPI_ISL_13370703      0.00%    passed     99.94%
+ 266  EPI_ISL_13370628      0.00%    passed     99.76%
+ 267  EPI_ISL_13370613      0.00%    passed     99.59%
+ 268  EPI_ISL_13370520      0.00%    passed     99.76%
+ 269  EPI_ISL_5463803       0.00%    passed     99.94%
+ 270  EPI_ISL_5463801       0.00%    passed     99.94%
+ 271  EPI_ISL_5463800       0.00%    passed     99.94%
+ 272  EPI_ISL_5463799       0.00%    passed     99.94%
+ 273  EPI_ISL_5463798       0.00%    passed     99.94%
+ 274  EPI_ISL_5463797       0.00%    passed     99.94%
+ 275  EPI_ISL_19081847      4.35%    passed     94.81%
+ 276  EPI_ISL_17716083      0.13%    passed     99.88%
+ 277  EPI_ISL_16384168      0.19%    passed     99.99%
+ 278  EPI_ISL_14864640      0.06%    passed     99.92%
+ 279  EPI_ISL_13370508      0.06%    passed     99.80%
+ 280  EPI_ISL_17716058      0.06%    passed     99.75%
+ 281  EPI_ISL_16444163      0.13%    passed     99.93%
+ 282  EPI_ISL_16384152      0.00%    passed     99.77%
+ 283  EPI_ISL_15958004      0.13%    passed     99.83%
+ 284  EPI_ISL_15957912      0.13%    passed     99.76%
+ 285  EPI_ISL_15942297      0.13%    passed     99.83%
+ 286  EPI_ISL_15586122      0.13%    passed     99.76%
+ 287  EPI_ISL_15586107      0.13%    passed     99.76%
+ 288  EPI_ISL_15585762      0.13%    passed     99.98%
+ 289  EPI_ISL_13369767      0.13%    passed     99.66%
+ 290  EPI_ISL_13369763      0.13%    passed     99.66%
+ 291  EPI_ISL_18927384      0.00%    passed     99.20%
+ 292  EPI_ISL_17514137      0.00%    passed     99.74%
+ 293  EPI_ISL_17514135      0.00%    passed     99.81%
+ 294  EPI_ISL_17214731      0.00%    passed     99.98%
+ 295  EPI_ISL_16676489      0.00%    passed     99.78%
+ 296  EPI_ISL_16574599      0.19%    passed     99.90%
+ 297  EPI_ISL_16574569      0.06%    passed     99.88%
+ 298  EPI_ISL_16384175      0.00%    passed     99.79%
+ 299  EPI_ISL_15957730      0.00%    passed     99.90%
+ 300  EPI_ISL_15586117      0.00%    passed     99.73%
+ 301  EPI_ISL_15585904      0.00%    passed     99.79%
+ 302  EPI_ISL_15585750      0.19%    passed     99.88%
+ 303  EPI_ISL_13486890      0.00%    passed     99.97%
+ 304  EPI_ISL_13486869      0.00%    passed     99.97%
+ 305  EPI_ISL_13486831      0.00%    passed     99.97%
+ 306  EPI_ISL_13370633      0.00%    passed     99.52%
+ 307  EPI_ISL_13370612      0.00%    passed     99.52%
+ 308  EPI_ISL_13370610      0.00%    passed     99.52%
+ 309  EPI_ISL_13370570      0.00%    passed     99.52%
+ 310  EPI_ISL_13370518      0.00%    passed     99.77%
+ 311  EPI_ISL_13370420      0.00%    passed     99.52%
+ 312  EPI_ISL_13369784      0.00%    passed     99.77%
+ 313  EPI_ISL_13369772      0.00%    passed     99.77%
+ 314  EPI_ISL_13369754      0.00%    passed     99.52%
+ 315  EPI_ISL_13369748      0.00%    passed     99.59%
+ 316  EPI_ISL_13369745      0.00%    passed     99.59%
+ 317  EPI_ISL_10940622      0.00%    passed     99.59%
+ 318  EPI_ISL_10880515      0.00%    passed     99.66%
+ 319  EPI_ISL_9650269       0.00%    passed     99.59%
+ 320  EPI_ISL_9648464       0.00%    passed     99.59%
+ 321  EPI_ISL_7053817       0.00%    passed     99.52%
+ 322  EPI_ISL_5463802       0.00%    passed     99.98%
+ 323  EPI_ISL_15957798      0.06%    passed     99.90%
+ 324  EPI_ISL_15957728      0.00%    passed     99.94%
+ 325  EPI_ISL_15586112      0.06%    passed     99.97%
+ 326  EPI_ISL_15586108      0.26%    passed     99.82%
+ 327  EPI_ISL_17072341      0.19%    passed     99.77%
+ 328  EPI_ISL_17072173      0.32%    passed     99.94%
+ 329  EPI_ISL_16574723      0.13%    passed     99.66%
+ 330  EPI_ISL_16384196      0.32%    passed     99.80%
+ 331  EPI_ISL_16384195      0.13%    passed     99.66%
+ 332  EPI_ISL_16384181      0.13%    passed     99.64%
+ 333  EPI_ISL_16384166      0.13%    passed     99.66%
+ 334  EPI_ISL_16384149      1.66%    passed     99.44%
+ 335  EPI_ISL_16384146      0.32%    passed     99.88%
+ 336  EPI_ISL_15585886      0.13%    passed     99.64%
+ 337  EPI_ISL_13370608      0.06%    passed     99.18%
+ 338  EPI_ISL_13370604      0.13%    passed     99.80%
+ 339  EPI_ISL_13370603      0.13%    passed     99.39%
+ 340  EPI_ISL_13370573      0.06%    passed     99.18%
+ 341  EPI_ISL_13369781      0.06%    passed     99.39%
+ 342  EPI_ISL_13369401      0.13%    passed     99.47%
+ 343  EPI_ISL_13369400      0.13%    passed     99.39%
+ 344  EPI_ISL_18345367      0.77%    passed     99.87%
+ 345  EPI_ISL_17791549      0.00%    passed     99.99%
+ 346  EPI_ISL_17791548      0.00%    passed     99.99%
+ 347  EPI_ISL_17774061      1.02%    passed     99.40%
+ 348  EPI_ISL_17672824      0.00%    passed     99.65%
+ 349  EPI_ISL_17257532      0.19%    passed     99.85%
+ 350  EPI_ISL_17214732      0.13%    passed     99.67%
+ 351  EPI_ISL_16904553      0.00%    passed     99.94%
+ 352  EPI_ISL_16809296      0.00%    passed     99.92%
+ 353  EPI_ISL_16384143      0.96%    passed     99.93%
+ 354  EPI_ISL_15957966      0.00%    passed     99.93%
+ 355  EPI_ISL_15957844      0.00%    passed     99.70%
+ 356  EPI_ISL_15957654      0.00%    passed     99.85%
+ 357  EPI_ISL_15697406      0.00%    passed     99.75%
+ 358  EPI_ISL_15586124      0.00%    passed     99.58%
+ 359  EPI_ISL_14986757      0.00%    passed     99.97%
+ 360  EPI_ISL_13486857      0.00%    passed     99.94%
+ 361  EPI_ISL_13486844      0.00%    passed     99.94%
+ 362  EPI_ISL_13370913      0.00%    passed     99.93%
+ 363  EPI_ISL_13370910      0.00%    passed     99.98%
+ 364  EPI_ISL_13370694      0.00%    passed     99.77%
+ 365  EPI_ISL_13370634      0.00%    passed     99.13%
+ 366  EPI_ISL_13370609      0.00%    passed     99.76%
+ 367  EPI_ISL_13370524      0.00%    passed     99.76%
+ 368  EPI_ISL_13370514      0.00%    passed     99.76%
+ 369  EPI_ISL_13370248      0.00%    passed     99.59%
+ 370  EPI_ISL_13369769      0.00%    passed     99.76%
+ 371  EPI_ISL_10576444      0.64%    passed     99.57%
+ 372  EPI_ISL_9641226       0.00%    passed     99.25%
+ 373  EPI_ISL_9012696       0.00%    passed     99.67%
+ 374  EPI_ISL_7880696       0.64%    passed     98.98%
+ 375  EPI_ISL_7054770       0.00%    passed     99.25%
+ 376  EPI_ISL_16809999      0.26%    passed     99.78%
+ 377  EPI_ISL_16676474      0.26%    passed     99.70%
+ 378  EPI_ISL_15957774      0.06%    passed     99.93%
+ 379  EPI_ISL_17791551      0.13%    passed     99.97%
+ 380  EPI_ISL_17791546      0.06%    passed     99.92%
+ 381  EPI_ISL_17785730      0.06%    passed     99.30%
+ 382  EPI_ISL_16574516      0.00%    passed     99.54%
+ 383  EPI_ISL_15957865      0.13%    passed     99.86%
+ 384  EPI_ISL_13969421      0.70%    passed     99.95%
+ 385  EPI_ISL_13370909      0.13%    passed     99.95%
+ 386  EPI_ISL_13370893      0.13%    passed     99.88%
+ 387  EPI_ISL_13370679      0.32%    passed     99.84%
+ 388  EPI_ISL_13370626      0.13%    passed     98.96%
+ 389  EPI_ISL_13370621      0.00%    passed     99.08%
+ 390  EPI_ISL_13370523      0.06%    passed     99.80%
+ 391  EPI_ISL_13369764      0.13%    passed     99.71%
+ 392  EPI_ISL_9012700       0.13%    passed     99.59%
+ 393  EPI_ISL_9012694       0.13%    passed     99.59%
+ 394  EPI_ISL_18258052      0.00%    passed     99.79%
+ 395  EPI_ISL_17583228      1.60%    passed    100.00%
+ 396  EPI_ISL_17257530      0.00%    passed     99.94%
+ 397  EPI_ISL_16969356      0.00%    passed     99.81%
+ 398  EPI_ISL_16574488      0.00%    passed     99.24%
+ 399  EPI_ISL_16549245      0.00%    passed     99.87%
+ 400  EPI_ISL_16384180      0.19%    passed     99.60%
+ 401  EPI_ISL_16384169      0.45%    passed     99.98%
+ 402  EPI_ISL_16384142      0.19%    passed     99.96%
+ 403  EPI_ISL_16350802      0.00%    passed     99.89%
+ 404  EPI_ISL_15957925      0.00%    passed     99.94%
+ 405  EPI_ISL_15957899      0.00%    passed     99.81%
+ 406  EPI_ISL_15957744      0.00%    passed     99.94%
+ 407  EPI_ISL_15802970      0.00%    passed     99.89%
+ 408  EPI_ISL_15759953      1.60%    passed     99.94%
+ 409  EPI_ISL_15585761      0.00%    passed     99.94%
+ 410  EPI_ISL_15585754      0.19%    passed     99.90%
+ 411  EPI_ISL_15473950      1.60%    passed     99.96%
+ 412  EPI_ISL_14986843      0.00%    passed     99.90%
+ 413  EPI_ISL_14493899      0.00%    passed     99.81%
+ 414  EPI_ISL_14393671      0.00%    passed     99.81%
+ 415  EPI_ISL_14393465      0.00%    passed     99.81%
+ 416  EPI_ISL_14298226      1.60%    passed     99.82%
+ 417  EPI_ISL_13514375      0.06%    passed     99.98%
+ 418  EPI_ISL_13370915      0.00%    passed     99.98%
+ 419  EPI_ISL_13370914      0.00%    passed     99.98%
+ 420  EPI_ISL_13370912      0.00%    passed     99.98%
+ 421  EPI_ISL_13370907      0.00%    passed     99.98%
+ 422  EPI_ISL_13370710      0.00%    passed     99.98%
+ 423  EPI_ISL_13370706      0.00%    passed     99.81%
+ 424  EPI_ISL_13370632      0.00%    passed     98.55%
+ 425  EPI_ISL_13370631      0.00%    passed     98.55%
+ 426  EPI_ISL_13370569      0.00%    passed     99.52%
+ 427  EPI_ISL_13370558      0.00%    passed     99.81%
+ 428  EPI_ISL_13370419      0.00%    passed     99.81%
+ 429  EPI_ISL_13369782      0.00%    passed     99.57%
+ 430  EPI_ISL_13369771      0.00%    passed     99.57%
+ 431  EPI_ISL_13369768      0.00%    passed     99.52%
+ 432  EPI_ISL_13369755      0.00%    passed     99.59%
+ 433  EPI_ISL_13338024      0.00%    passed     99.81%
+ 434  EPI_ISL_12514483      1.60%    passed     99.94%
+ 435  EPI_ISL_12474794      1.60%    passed     99.94%
+ 436  EPI_ISL_11798578      1.60%    passed     99.94%
+ 437  EPI_ISL_11880371      0.00%    passed     99.74%
+ 438  EPI_ISL_9690821       1.60%    passed     99.94%
+ 439  EPI_ISL_9162331       0.00%    passed     99.59%
+ 440  EPI_ISL_7880689       0.00%    passed     99.59%
+ 441  EPI_ISL_7267253       1.60%    passed     99.94%
+ 442  EPI_ISL_17072114      0.26%    passed     99.78%
+ 443  EPI_ISL_16904550      0.06%    passed     99.79%
+ 444  EPI_ISL_16811199      0.38%    passed     99.97%
+ 445  EPI_ISL_16384161      0.58%    passed     99.99%
+ 446  EPI_ISL_15585897      1.28%    passed     99.98%
+ 447  EPI_ISL_15585896      1.34%    passed     99.83%
+ 448  EPI_ISL_13369746      0.19%    passed     99.68%
+ 449  EPI_ISL_18258054      0.00%    passed     99.77%
+ 450  EPI_ISL_16956028      0.13%    passed     99.95%
+ 451  EPI_ISL_16574556      0.32%    passed     99.92%
+ 452  EPI_ISL_15957984      0.13%    passed     99.73%
+ 453  EPI_ISL_15957972      0.51%    passed     99.97%
+ 454  EPI_ISL_15957766      0.13%    passed     99.87%
+ 455  EPI_ISL_14064983      0.32%    passed     99.88%
+ 456  EPI_ISL_13969423      0.77%    passed     99.88%
+ 457  EPI_ISL_13370917      0.13%    passed     99.95%
+ 458  EPI_ISL_13370916      0.00%    passed     99.94%
+ 459  EPI_ISL_13370911      0.13%    passed     99.95%
+ 460  EPI_ISL_13370908      0.13%    passed     99.95%
+ 461  EPI_ISL_13370705      0.06%    passed     99.50%
+ 462  EPI_ISL_13370625      0.32%    passed     99.38%
+ 463  EPI_ISL_18345170      0.77%    passed     99.10%
+ 464  EPI_ISL_17465832      0.00%    passed     99.90%
+ 465  EPI_ISL_17465830      0.00%    passed     99.94%
+ 466  EPI_ISL_17214734      0.00%    passed     99.81%
+ 467  EPI_ISL_17167249      1.60%    passed    100.00%
+ 468  EPI_ISL_17033246      1.60%    passed     99.92%
+ 469  EPI_ISL_17033244      1.60%    passed     99.92%
+ 470  EPI_ISL_17033243      1.60%    passed     99.66%
+ 471  EPI_ISL_17008431      1.60%    passed     99.86%
+ 472  EPI_ISL_16969359      0.00%    passed     99.94%
+ 473  EPI_ISL_16896604      0.00%    passed     99.94%
+ 474  EPI_ISL_16896603      0.00%    passed     99.94%
+ 475  EPI_ISL_16630763      0.00%    passed     99.94%
+ 476  EPI_ISL_16560274      0.00%    passed     99.75%
+ 477  EPI_ISL_16547851      0.58%    passed     99.48%
+ 478  EPI_ISL_16384163      0.06%    passed     99.92%
+ 479  EPI_ISL_16384158      0.00%    passed     99.90%
+ 480  EPI_ISL_15957872      0.00%    passed     99.88%
+ 481  EPI_ISL_15585893      0.00%    passed     99.77%
+ 482  EPI_ISL_15585863      0.00%    passed     99.97%
+ 483  EPI_ISL_15585856      0.00%    passed     99.94%
+ 484  EPI_ISL_15585752      0.00%    passed     99.94%
+ 485  EPI_ISL_15579545      1.60%    passed     99.92%
+ 486  EPI_ISL_14392127      0.00%    passed     99.53%
+ 487  EPI_ISL_14389524      0.00%    passed     99.76%
+ 488  EPI_ISL_14389148      0.00%    passed     99.76%
+ 489  EPI_ISL_13370708      0.00%    passed     98.75%
+ 490  EPI_ISL_12514681      1.60%    passed     99.96%
+ 491  EPI_ISL_12514573      1.60%    passed     99.96%
+ 492  EPI_ISL_12514425      1.60%    passed     99.96%
+ 493  EPI_ISL_11798572      1.60%    passed     99.87%
+ 494  EPI_ISL_11560325      1.60%    passed     99.96%
+ 495  EPI_ISL_10347220      1.60%    passed     99.87%
+ 496  EPI_ISL_10347219      1.60%    passed     99.79%
+ 497  EPI_ISL_10347218      1.60%    passed     99.87%
+ 498  EPI_ISL_9690956       1.60%    passed     99.96%
+ 499  EPI_ISL_9616263       1.60%    passed     99.96%
+ 500  EPI_ISL_9439410       1.60%    passed     99.96%
+ 501  EPI_ISL_9261741       1.60%    passed     99.96%
+ 502  EPI_ISL_9221469       1.60%    passed     99.96%
+ 503  EPI_ISL_9221451       1.60%    passed     99.96%
+ 504  EPI_ISL_7996370       1.60%    passed     99.96%
+ 505  EPI_ISL_7996368       1.60%    passed     99.87%
+ 506  EPI_ISL_7952129       1.60%    passed     99.96%
+ 507  EPI_ISL_7267249       1.60%    passed     99.96%
+ 508  EPI_ISL_6761016       1.60%    passed     99.87%
+ 509  EPI_ISL_6761010       1.60%    passed     99.87%
+ 510  EPI_ISL_6675750       1.60%    passed     99.87%
+ 511  EPI_ISL_6328022       1.60%    passed     99.87%
+ 512  EPI_ISL_5945412       1.60%    passed     99.87%
+ 513  EPI_ISL_6025676       1.60%    passed     99.87%
+ 514  EPI_ISL_5588106       1.60%    passed     99.87%
+ 515  EPI_ISL_18933204      4.35%    passed     94.16%
+ 516  EPI_ISL_18933102      4.35%    passed     94.16%
+ 517  EPI_ISL_18933100      4.35%    passed     94.16%
+ 518  EPI_ISL_16574769      0.70%    passed     99.91%
+ 519  EPI_ISL_16574692      1.09%    passed     99.74%
+ 520  EPI_ISL_16384192      0.06%    passed     99.92%
+ 521  EPI_ISL_15585880      0.00%    passed     99.94%
+ 522  EPI_ISL_15585839      0.06%    passed     99.28%
+ 523  EPI_ISL_13369766      0.06%    passed     99.92%
+ 524  EPI_ISL_17791550      0.19%    passed     99.96%
+ 525  EPI_ISL_17634330      1.66%    passed     99.98%
+ 526  EPI_ISL_17465834      0.06%    passed     99.78%
+ 527  EPI_ISL_17465833      0.13%    passed     99.82%
+ 528  EPI_ISL_16811195      0.19%    passed     99.96%
+ 529  EPI_ISL_16547666      0.70%    passed     99.23%
+ 530  EPI_ISL_16384174      1.28%    passed     99.95%
+WARNING: 1 sequences contain more than 50% gaps/ambiguity
+****  TOTAL                 0.79%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+NOTE: EPI_ISL_18660931 is identical to EPI_ISL_18789944 but kept for subsequent analysis
+NOTE: EPI_ISL_18862257 is identical to EPI_ISL_18824085 but kept for subsequent analysis
+NOTE: EPI_ISL_19033563 is identical to EPI_ISL_18788080 but kept for subsequent analysis
+NOTE: EPI_ISL_18607170 is identical to EPI_ISL_18668242 but kept for subsequent analysis
+NOTE: EPI_ISL_18918472 is identical to EPI_ISL_18866885 but kept for subsequent analysis
+NOTE: EPI_ISL_18937347 is identical to EPI_ISL_19033339 but kept for subsequent analysis
+NOTE: EPI_ISL_18745073 is identical to EPI_ISL_18745084 but kept for subsequent analysis
+NOTE: EPI_ISL_18862259 is identical to EPI_ISL_18937346 but kept for subsequent analysis
+NOTE: EPI_ISL_19033559 is identical to EPI_ISL_18937349 but kept for subsequent analysis
+NOTE: EPI_ISL_18918527 is identical to EPI_ISL_18918529 but kept for subsequent analysis
+NOTE: EPI_ISL_18514134 is identical to EPI_ISL_18788075 but kept for subsequent analysis
+NOTE: EPI_ISL_18592418 is identical to EPI_ISL_18592434 but kept for subsequent analysis
+NOTE: EPI_ISL_18668518 is identical to EPI_ISL_18668524 but kept for subsequent analysis
+NOTE: EPI_ISL_18592420 is identical to EPI_ISL_18592421 but kept for subsequent analysis
+NOTE: EPI_ISL_19033560 is identical to EPI_ISL_19033561 but kept for subsequent analysis
+NOTE: EPI_ISL_19033550 is identical to EPI_ISL_19033558 but kept for subsequent analysis
+NOTE: EPI_ISL_18787923 is identical to EPI_ISL_18885547 but kept for subsequent analysis
+NOTE: EPI_ISL_18866883 is identical to EPI_ISL_18866887 but kept for subsequent analysis
+NOTE: EPI_ISL_18660623 is identical to EPI_ISL_18745080 but kept for subsequent analysis
+NOTE: EPI_ISL_19033332 is identical to EPI_ISL_19033554 but kept for subsequent analysis
+NOTE: EPI_ISL_18789904 is identical to EPI_ISL_18866893 but kept for subsequent analysis
+NOTE: EPI_ISL_18729428 is identical to EPI_ISL_18729429 but kept for subsequent analysis
+NOTE: EPI_ISL_19044792 is identical to EPI_ISL_19044793 but kept for subsequent analysis
+NOTE: EPI_ISL_18866888 is identical to EPI_ISL_18866891 but kept for subsequent analysis
+NOTE: EPI_ISL_17072781 is identical to EPI_ISL_17710023 but kept for subsequent analysis
+NOTE: EPI_ISL_17716080 is identical to EPI_ISL_17716082 but kept for subsequent analysis
+NOTE: EPI_ISL_17514167 is identical to EPI_ISL_17514168 but kept for subsequent analysis
+NOTE: EPI_ISL_15585749 is identical to EPI_ISL_15586113 but kept for subsequent analysis
+NOTE: EPI_ISL_15586126 is identical to EPI_ISL_15957666 but kept for subsequent analysis
+NOTE: EPI_ISL_13369753 is identical to EPI_ISL_13369783 but kept for subsequent analysis
+NOTE: EPI_ISL_17716060 is identical to EPI_ISL_17716062 but kept for subsequent analysis
+NOTE: EPI_ISL_13369762 is identical to EPI_ISL_13370505 but kept for subsequent analysis
+NOTE: EPI_ISL_17514138 is identical to EPI_ISL_17514139 but kept for subsequent analysis
+NOTE: EPI_ISL_15585753 is identical to EPI_ISL_16811201 but kept for subsequent analysis
+NOTE: EPI_ISL_15957708 is identical to EPI_ISL_15957731 but kept for subsequent analysis
+NOTE: EPI_ISL_14390100 is identical to EPI_ISL_14864638 but kept for subsequent analysis
+NOTE: EPI_ISL_13370520 is identical to EPI_ISL_13370628 but kept for subsequent analysis
+NOTE: EPI_ISL_15942297 is identical to EPI_ISL_15958004 but kept for subsequent analysis
+NOTE: EPI_ISL_15586122 is identical to EPI_ISL_15957912 but kept for subsequent analysis
+NOTE: EPI_ISL_13369763 is identical to EPI_ISL_13369767 but kept for subsequent analysis
+NOTE: EPI_ISL_13486869 is identical to EPI_ISL_13486890 but kept for subsequent analysis
+NOTE: EPI_ISL_13370612 is identical to EPI_ISL_13370633 but kept for subsequent analysis
+NOTE: EPI_ISL_13369784 is identical to EPI_ISL_13370518 but kept for subsequent analysis
+NOTE: EPI_ISL_13369745 is identical to EPI_ISL_13369748 but kept for subsequent analysis
+NOTE: EPI_ISL_9650269 is identical to EPI_ISL_10940622 but kept for subsequent analysis
+NOTE: EPI_ISL_16384195 is identical to EPI_ISL_16574723 but kept for subsequent analysis
+NOTE: EPI_ISL_13370573 is identical to EPI_ISL_13370608 but kept for subsequent analysis
+NOTE: EPI_ISL_13369400 is identical to EPI_ISL_13370603 but kept for subsequent analysis
+NOTE: EPI_ISL_17791548 is identical to EPI_ISL_17791549 but kept for subsequent analysis
+NOTE: EPI_ISL_13486844 is identical to EPI_ISL_13486857 but kept for subsequent analysis
+NOTE: EPI_ISL_13370524 is identical to EPI_ISL_13370609 but kept for subsequent analysis
+NOTE: EPI_ISL_7054770 is identical to EPI_ISL_9641226 but kept for subsequent analysis
+NOTE: EPI_ISL_9012694 is identical to EPI_ISL_9012700 but kept for subsequent analysis
+NOTE: EPI_ISL_15957925 is identical to EPI_ISL_17257530 but kept for subsequent analysis
+NOTE: EPI_ISL_15957899 is identical to EPI_ISL_16969356 but kept for subsequent analysis
+NOTE: EPI_ISL_15802970 is identical to EPI_ISL_16350802 but kept for subsequent analysis
+NOTE: EPI_ISL_11798578 is identical to EPI_ISL_15759953 but kept for subsequent analysis
+NOTE: EPI_ISL_14393465 is identical to EPI_ISL_14393671 but kept for subsequent analysis
+NOTE: EPI_ISL_13370914 is identical to EPI_ISL_13370915 but kept for subsequent analysis
+NOTE: EPI_ISL_13370631 is identical to EPI_ISL_13370632 but kept for subsequent analysis
+NOTE: EPI_ISL_13369771 is identical to EPI_ISL_13369782 but kept for subsequent analysis
+NOTE: EPI_ISL_12474794 is identical to EPI_ISL_12514483 but kept for subsequent analysis
+NOTE: EPI_ISL_13370917 is identical to EPI_ISL_16956028 but kept for subsequent analysis
+NOTE: EPI_ISL_17033244 is identical to EPI_ISL_17033246 but kept for subsequent analysis
+NOTE: EPI_ISL_16896604 is identical to EPI_ISL_16969359 but kept for subsequent analysis
+NOTE: EPI_ISL_14389148 is identical to EPI_ISL_14389524 but kept for subsequent analysis
+NOTE: EPI_ISL_12514573 is identical to EPI_ISL_12514681 but kept for subsequent analysis
+NOTE: EPI_ISL_7996368 is identical to EPI_ISL_11798572 but kept for subsequent analysis
+NOTE: EPI_ISL_10347218 is identical to EPI_ISL_10347220 but kept for subsequent analysis
+NOTE: EPI_ISL_18933102 is identical to EPI_ISL_18933204 but kept for subsequent analysis
+NOTE: 102 identical sequences (see below) will be ignored for subsequent analysis
+NOTE: EPI_ISL_18937342 (identical to EPI_ISL_18824085) is ignored but added at the end
+NOTE: EPI_ISL_18937339 (identical to EPI_ISL_18937346) is ignored but added at the end
+NOTE: EPI_ISL_18885826 (identical to EPI_ISL_18937349) is ignored but added at the end
+NOTE: EPI_ISL_18885839 (identical to EPI_ISL_18937349) is ignored but added at the end
+NOTE: EPI_ISL_18788100 (identical to EPI_ISL_18937349) is ignored but added at the end
+NOTE: EPI_ISL_18787919 (identical to EPI_ISL_18937349) is ignored but added at the end
+NOTE: EPI_ISL_18787914 (identical to EPI_ISL_18937349) is ignored but added at the end
+NOTE: EPI_ISL_18592414 (identical to EPI_ISL_18592434) is ignored but added at the end
+NOTE: EPI_ISL_19033336 (identical to EPI_ISL_19033558) is ignored but added at the end
+NOTE: EPI_ISL_19033335 (identical to EPI_ISL_19033558) is ignored but added at the end
+NOTE: EPI_ISL_19033333 (identical to EPI_ISL_19033558) is ignored but added at the end
+NOTE: EPI_ISL_19033331 (identical to EPI_ISL_19033558) is ignored but added at the end
+NOTE: EPI_ISL_18660932 (identical to EPI_ISL_18866887) is ignored but added at the end
+NOTE: EPI_ISL_18536663 (identical to EPI_ISL_18745080) is ignored but added at the end
+NOTE: EPI_ISL_18530147 (identical to EPI_ISL_18745080) is ignored but added at the end
+NOTE: EPI_ISL_18506032 (identical to EPI_ISL_18745080) is ignored but added at the end
+NOTE: EPI_ISL_18506030 (identical to EPI_ISL_18745080) is ignored but added at the end
+NOTE: EPI_ISL_18729427 (identical to EPI_ISL_18729429) is ignored but added at the end
+NOTE: EPI_ISL_18729401 (identical to EPI_ISL_18729429) is ignored but added at the end
+NOTE: EPI_ISL_18729400 (identical to EPI_ISL_18729429) is ignored but added at the end
+NOTE: EPI_ISL_18729387 (identical to EPI_ISL_18729429) is ignored but added at the end
+NOTE: EPI_ISL_18729386 (identical to EPI_ISL_18729429) is ignored but added at the end
+NOTE: EPI_ISL_18729385 (identical to EPI_ISL_18729429) is ignored but added at the end
+NOTE: EPI_ISL_19044791 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18946743 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18946742 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18946741 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18946740 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18946739 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18946737 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18946736 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18946735 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18946734 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18946733 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18928989 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18928987 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18928986 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18928985 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18928984 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_18928983 (identical to EPI_ISL_19044793) is ignored but added at the end
+NOTE: EPI_ISL_17072337 (identical to EPI_ISL_17710023) is ignored but added at the end
+NOTE: EPI_ISL_17716059 (identical to EPI_ISL_17716082) is ignored but added at the end
+NOTE: EPI_ISL_17514172 (identical to EPI_ISL_17716082) is ignored but added at the end
+NOTE: EPI_ISL_17514171 (identical to EPI_ISL_17716082) is ignored but added at the end
+NOTE: EPI_ISL_15585841 (identical to EPI_ISL_15957666) is ignored but added at the end
+NOTE: EPI_ISL_13369747 (identical to EPI_ISL_13369783) is ignored but added at the end
+NOTE: EPI_ISL_9651560 (identical to EPI_ISL_13369783) is ignored but added at the end
+NOTE: EPI_ISL_17716057 (identical to EPI_ISL_17716062) is ignored but added at the end
+NOTE: EPI_ISL_17514136 (identical to EPI_ISL_17514139) is ignored but added at the end
+NOTE: EPI_ISL_15586116 (identical to EPI_ISL_15957731) is ignored but added at the end
+NOTE: EPI_ISL_15585906 (identical to EPI_ISL_15957731) is ignored but added at the end
+NOTE: EPI_ISL_13370703 (identical to EPI_ISL_14864638) is ignored but added at the end
+NOTE: EPI_ISL_5463803 (identical to EPI_ISL_14864638) is ignored but added at the end
+NOTE: EPI_ISL_5463801 (identical to EPI_ISL_14864638) is ignored but added at the end
+NOTE: EPI_ISL_5463800 (identical to EPI_ISL_14864638) is ignored but added at the end
+NOTE: EPI_ISL_5463799 (identical to EPI_ISL_14864638) is ignored but added at the end
+NOTE: EPI_ISL_5463798 (identical to EPI_ISL_14864638) is ignored but added at the end
+NOTE: EPI_ISL_5463797 (identical to EPI_ISL_14864638) is ignored but added at the end
+NOTE: EPI_ISL_15586107 (identical to EPI_ISL_15957912) is ignored but added at the end
+NOTE: EPI_ISL_13486831 (identical to EPI_ISL_13486890) is ignored but added at the end
+NOTE: EPI_ISL_13370610 (identical to EPI_ISL_13370633) is ignored but added at the end
+NOTE: EPI_ISL_13370570 (identical to EPI_ISL_13370633) is ignored but added at the end
+NOTE: EPI_ISL_13370420 (identical to EPI_ISL_13370633) is ignored but added at the end
+NOTE: EPI_ISL_13369754 (identical to EPI_ISL_13370633) is ignored but added at the end
+NOTE: EPI_ISL_7053817 (identical to EPI_ISL_13370633) is ignored but added at the end
+NOTE: EPI_ISL_13369772 (identical to EPI_ISL_13370518) is ignored but added at the end
+NOTE: EPI_ISL_9648464 (identical to EPI_ISL_10940622) is ignored but added at the end
+NOTE: EPI_ISL_16384166 (identical to EPI_ISL_16574723) is ignored but added at the end
+NOTE: EPI_ISL_13370514 (identical to EPI_ISL_13370609) is ignored but added at the end
+NOTE: EPI_ISL_13369769 (identical to EPI_ISL_13370609) is ignored but added at the end
+NOTE: EPI_ISL_15957744 (identical to EPI_ISL_17257530) is ignored but added at the end
+NOTE: EPI_ISL_15585761 (identical to EPI_ISL_17257530) is ignored but added at the end
+NOTE: EPI_ISL_13370706 (identical to EPI_ISL_16969356) is ignored but added at the end
+NOTE: EPI_ISL_13338024 (identical to EPI_ISL_16969356) is ignored but added at the end
+NOTE: EPI_ISL_7267253 (identical to EPI_ISL_15759953) is ignored but added at the end
+NOTE: EPI_ISL_13370912 (identical to EPI_ISL_13370915) is ignored but added at the end
+NOTE: EPI_ISL_13370907 (identical to EPI_ISL_13370915) is ignored but added at the end
+NOTE: EPI_ISL_13370710 (identical to EPI_ISL_13370915) is ignored but added at the end
+NOTE: EPI_ISL_13370911 (identical to EPI_ISL_16956028) is ignored but added at the end
+NOTE: EPI_ISL_13370908 (identical to EPI_ISL_16956028) is ignored but added at the end
+NOTE: EPI_ISL_15579545 (identical to EPI_ISL_17033246) is ignored but added at the end
+NOTE: EPI_ISL_16896603 (identical to EPI_ISL_16969359) is ignored but added at the end
+NOTE: EPI_ISL_16630763 (identical to EPI_ISL_16969359) is ignored but added at the end
+NOTE: EPI_ISL_12514425 (identical to EPI_ISL_12514681) is ignored but added at the end
+NOTE: EPI_ISL_11560325 (identical to EPI_ISL_12514681) is ignored but added at the end
+NOTE: EPI_ISL_9690956 (identical to EPI_ISL_12514681) is ignored but added at the end
+NOTE: EPI_ISL_9616263 (identical to EPI_ISL_12514681) is ignored but added at the end
+NOTE: EPI_ISL_9439410 (identical to EPI_ISL_12514681) is ignored but added at the end
+NOTE: EPI_ISL_9261741 (identical to EPI_ISL_12514681) is ignored but added at the end
+NOTE: EPI_ISL_9221469 (identical to EPI_ISL_12514681) is ignored but added at the end
+NOTE: EPI_ISL_9221451 (identical to EPI_ISL_12514681) is ignored but added at the end
+NOTE: EPI_ISL_7996370 (identical to EPI_ISL_12514681) is ignored but added at the end
+NOTE: EPI_ISL_7952129 (identical to EPI_ISL_12514681) is ignored but added at the end
+NOTE: EPI_ISL_7267249 (identical to EPI_ISL_12514681) is ignored but added at the end
+NOTE: EPI_ISL_6761016 (identical to EPI_ISL_11798572) is ignored but added at the end
+NOTE: EPI_ISL_6761010 (identical to EPI_ISL_11798572) is ignored but added at the end
+NOTE: EPI_ISL_6675750 (identical to EPI_ISL_11798572) is ignored but added at the end
+NOTE: EPI_ISL_6328022 (identical to EPI_ISL_11798572) is ignored but added at the end
+NOTE: EPI_ISL_5945412 (identical to EPI_ISL_11798572) is ignored but added at the end
+NOTE: EPI_ISL_6025676 (identical to EPI_ISL_11798572) is ignored but added at the end
+NOTE: EPI_ISL_5588106 (identical to EPI_ISL_11798572) is ignored but added at the end
+NOTE: EPI_ISL_18933100 (identical to EPI_ISL_18933204) is ignored but added at the end
+
+For your convenience alignment with unique sequences printed to NP_030624_2.fas.uniqueseq.phy
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.025 seconds
+NOTE: ModelFinder requires 51 MB RAM!
+ModelFinder will test 13 DNA models (sample size: 1565) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  1  GTR+F         6714.624     861 15151.249    17262.720    19762.456
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  2  GTR+F+I       6572.965     862 14869.931    16989.321    19486.494
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  3  GTR+F+G4      6565.207     862 14854.414    16973.805    19470.977
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  4  GTR+F+I+G4    6555.609     863 14837.219    16964.557    19459.137
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  5  GTR+F+R2      6552.386     863 14830.772    16958.110    19452.690
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  6  GTR+F+R3      6478.990     865 14687.979    16831.298    19320.609
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  7  GTR+F+R4      6478.729     867 14691.458    16850.872    19334.799
+Akaike Information Criterion:           GTR+F+R3
+Corrected Akaike Information Criterion: GTR+F+R3
+Bayesian Information Criterion:         GTR+F+R3
+Best-fit model: GTR+F+R3 chosen according to BIC
+
+All model information printed to NP_030624_2.fas.model.gz
+CPU time for ModelFinder: 36.735 seconds (0h:0m:36s)
+Wall-clock time for ModelFinder: 9.364 seconds (0h:0m:9s)
+
+NOTE: 15 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -6871.650
+2. Current log-likelihood: -6590.811
+3. Current log-likelihood: -6568.354
+4. Current log-likelihood: -6556.794
+5. Current log-likelihood: -6552.584
+6. Current log-likelihood: -6551.059
+7. Current log-likelihood: -6549.859
+8. Current log-likelihood: -6548.705
+9. Current log-likelihood: -6547.537
+10. Current log-likelihood: -6546.214
+11. Current log-likelihood: -6544.585
+12. Current log-likelihood: -6542.399
+13. Current log-likelihood: -6539.048
+14. Current log-likelihood: -6533.142
+15. Current log-likelihood: -6519.111
+16. Current log-likelihood: -6488.245
+17. Current log-likelihood: -6483.740
+18. Current log-likelihood: -6481.460
+19. Current log-likelihood: -6480.244
+20. Current log-likelihood: -6479.655
+21. Current log-likelihood: -6479.381
+22. Current log-likelihood: -6479.250
+Optimal log-likelihood: -6479.170
+Rate parameters:  A-C: 1.68526  A-G: 6.48432  A-T: 0.51541  C-G: 0.71563  C-T: 9.21848  G-T: 1.00000
+Base frequencies:  A: 0.316  C: 0.200  G: 0.271  T: 0.213
+Site proportion and rates:  (0.799,0.274) (0.199,3.296) (0.003,49.462)
+Parameters optimization took 22 rounds (3.537 sec)
+Computing ML distances based on estimated model parameters... 0.725 sec
+Computing BIONJ tree...
+0.097 seconds
+Log-likelihood of BIONJ tree: -6463.310
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 2.648 second
+Computing log-likelihood of 98 initial trees ... 4.116 seconds
+Current best score: -6436.473
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -6434.062
+Iteration 10 / LogL: -6445.954 / Time: 0h:0m:14s
+Iteration 20 / LogL: -6444.979 / Time: 0h:0m:19s
+Finish initializing candidate tree set (20)
+Current best tree score: -6434.062 / CPU time: 15.203
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -6482.925 / Time: 0h:0m:23s (0h:0m:57s left)
+Iteration 40 / LogL: -6436.720 / Time: 0h:0m:27s (0h:0m:42s left)
+Iteration 50 / LogL: -6435.927 / Time: 0h:0m:31s (0h:0m:32s left)
+Iteration 60 / LogL: -6434.063 / Time: 0h:0m:35s (0h:0m:24s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 62: -6430.524
+Iteration 70 / LogL: -6436.730 / Time: 0h:0m:39s (0h:0m:52s left)
+Iteration 80 / LogL: -6433.869 / Time: 0h:0m:43s (0h:0m:45s left)
+Iteration 90 / LogL: -6442.832 / Time: 0h:0m:47s (0h:0m:38s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 94: -6430.387
+Iteration 100 / LogL: -6435.942 / Time: 0h:0m:51s (0h:0m:48s left)
+Iteration 110 / LogL: -6480.329 / Time: 0h:0m:55s (0h:0m:42s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 117: -6428.863
+Iteration 120 / LogL: -6432.910 / Time: 0h:0m:59s (0h:0m:48s left)
+Iteration 130 / LogL: -6442.530 / Time: 0h:1m:3s (0h:0m:42s left)
+BETTER TREE FOUND at iteration 132: -6428.860
+Iteration 140 / LogL: -6430.317 / Time: 0h:1m:7s (0h:0m:44s left)
+Iteration 150 / LogL: -6445.231 / Time: 0h:1m:10s (0h:0m:39s left)
+Iteration 160 / LogL: -6430.317 / Time: 0h:1m:14s (0h:0m:33s left)
+Iteration 170 / LogL: -6454.807 / Time: 0h:1m:18s (0h:0m:28s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 172: -6426.496
+Iteration 180 / LogL: -6447.552 / Time: 0h:1m:22s (0h:0m:42s left)
+Iteration 190 / LogL: -6444.379 / Time: 0h:1m:26s (0h:0m:37s left)
+Iteration 200 / LogL: -6435.857 / Time: 0h:1m:30s (0h:0m:32s left)
+Iteration 210 / LogL: -6446.494 / Time: 0h:1m:34s (0h:0m:27s left)
+Iteration 220 / LogL: -6434.888 / Time: 0h:1m:37s (0h:0m:23s left)
+Iteration 230 / LogL: -6458.560 / Time: 0h:1m:41s (0h:0m:18s left)
+Iteration 240 / LogL: -6433.635 / Time: 0h:1m:45s (0h:0m:14s left)
+BETTER TREE FOUND at iteration 241: -6426.492
+Iteration 250 / LogL: -6451.880 / Time: 0h:1m:49s (0h:0m:40s left)
+Iteration 260 / LogL: -6447.002 / Time: 0h:1m:53s (0h:0m:35s left)
+Iteration 270 / LogL: -6432.521 / Time: 0h:1m:57s (0h:0m:31s left)
+Iteration 280 / LogL: -6440.425 / Time: 0h:2m:1s (0h:0m:26s left)
+Iteration 290 / LogL: -6461.286 / Time: 0h:2m:5s (0h:0m:22s left)
+Iteration 300 / LogL: -6446.438 / Time: 0h:2m:9s (0h:0m:17s left)
+Iteration 310 / LogL: -6431.102 / Time: 0h:2m:12s (0h:0m:13s left)
+Iteration 320 / LogL: -6448.663 / Time: 0h:2m:16s (0h:0m:9s left)
+Iteration 330 / LogL: -6454.400 / Time: 0h:2m:20s (0h:0m:4s left)
+Iteration 340 / LogL: -6440.325 / Time: 0h:2m:24s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 342 ITERATIONS / Time: 0h:2m:25s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -6426.492
+Optimal log-likelihood: -6426.492
+Rate parameters:  A-C: 1.67195  A-G: 6.53492  A-T: 0.52025  C-G: 0.55834  C-T: 9.20957  G-T: 1.00000
+Base frequencies:  A: 0.316  C: 0.200  G: 0.271  T: 0.213
+Site proportion and rates:  (0.807,0.284) (0.191,3.355) (0.003,51.201)
+Parameters optimization took 1 rounds (0.110 sec)
+BEST SCORE FOUND : -6426.492
+Total tree length: 0.371
+
+Total number of iterations: 342
+CPU time used for tree search: 552.417 sec (0h:9m:12s)
+Wall-clock time used for tree search: 141.296 sec (0h:2m:21s)
+Total CPU time used: 568.179 sec (0h:9m:28s)
+Total wall-clock time used: 145.303 sec (0h:2m:25s)
+
+Analysis results written to: 
+  IQ-TREE report:                NP_030624_2.fas.iqtree
+  Maximum-likelihood tree:       NP_030624_2.fas.treefile
+  Likelihood distances:          NP_030624_2.fas.mldist
+  Screen log file:               NP_030624_2.fas.log
+
+Date and Time: Mon Jun 24 10:52:32 2024
