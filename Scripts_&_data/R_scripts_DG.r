@@ -156,9 +156,9 @@ for (i in 1:length(segments))
 	{
 		if (segments[i] == "ALL_12022025")
 			{
-				system(paste0("Genesis_of_DG/BEAST_v_1_10_4/bin/treeannotator -burninTrees ",round(burnIns[i])," -heights keep Genesis_of_DG/",gsub("2025","25_4",segments[i]),".trees Genesis_of_DG/",gsub("2025","25_4",segments[i]),"_NEW.tree"), ignore.stdout=F, ignore.stderr=F) # MCC trees to be re-organised with CMD+U in FigTree
+				system(paste0("Genesis_of_DG/BEAST_v_1_10_4/bin/treeannotator -burninTrees ",round(burnIns[i])," -heights keep Genesis_of_DG/",gsub("2025","25_4",segments[i]),".trees Genesis_of_DG/",gsub("2025","25_4",segments[i]),"_NEW.tree"), ignore.stdout=F, ignore.stderr=F) # MCC trees to be re-organised with CMD+D in FigTree
 			}	else	{
-				system(paste0("Genesis_of_DG/BEAST_v_1_10_4/bin/treeannotator -burninTrees ",round(burnIns[i])," -heights keep Genesis_of_DG/",gsub("2025","25_2",segments[i]),".trees Genesis_of_DG/",gsub("2025","25_2",segments[i]),"_NEW.tree"), ignore.stdout=F, ignore.stderr=F) # MCC trees to be re-organised with CMD+U in FigTree				
+				system(paste0("Genesis_of_DG/BEAST_v_1_10_4/bin/treeannotator -burninTrees ",round(burnIns[i])," -heights keep Genesis_of_DG/",gsub("2025","25_2",segments[i]),".trees Genesis_of_DG/",gsub("2025","25_2",segments[i]),"_NEW.tree"), ignore.stdout=F, ignore.stderr=F) # MCC trees to be re-organised with CMD+D in FigTree				
 			}
 	}
 		# Information retrieved from the three MCC trees (TO BE UPDATED):
