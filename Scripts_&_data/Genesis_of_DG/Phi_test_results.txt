@@ -1,2 +1,3 @@
-"ALL_030624_2.nex": "The phi test did find statistically significant evidence for recombination (p = 2.22E-16)"
-"ALL_030624_3.nex": "the phi test did not find statistically significant evidence for recombination (p = 1.0)"
+"ALL_120225_3.nex": the phi test did find statistically significant evidence for recombination (p = 9.877E-13)
+"PA_120225_2.nex": the phi test did not find statistically significant evidence for recombination (p = 0.8699)
+"PB2_120225_2.nex": the phi test did not find statistically significant evidence for recombination (p = 0.9262)

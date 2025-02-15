@@ -13,15 +13,16 @@ library(vegan)
 
 # A. Analysis of the genesis
 
-segments = c("ALL_03062024","HA_03062024","MP_03062024","NA_03062024","NP_03062024","NS_03062024","PA_03062024","PB1_03062024","PB2_03062024")
-	# ALL_03062024 = all concatanated segments but PA and PB2; "ALL_030624_4.fas" = "concatenated" alignment without recombinant sequences
+segments = c("ALL_12022025","PA_12022025","PB2_12022025")
+	# ALL_12022025 = all concatanated segments but PA and PB2; "ALL_120225_4.fas" = "concatenated" alignment without recombinant sequences
+	# (n.b.: the sequence EPI_ISL_19081847 was included two times and the first version was discarded because associated with less metadata)
 
-	# A.1. First attempt on the entire aligment (too slow with BEAST)
+	# A.1. Analyses based on the alignment including an extended set of background sequences
 
 for (i in 1:length(segments))
 	{
-		tab1 = read.csv(paste0("Genesis_of_DG/",segments[i],".csv"), sep=";", head=T)
-		txt = scan(paste0("Genesis_of_DG/",gsub("2024","24_1",segments[i]),".fas"), what="", sep="\n", quiet=T)
+		tab1 = read.csv(paste0("Genesis_of_DG/",gsub("2025","25_1",segments[i]),".csv"), sep=";", head=T)
+		txt = scan(paste0("Genesis_of_DG/",gsub("2025","25_1",segments[i]),".fas"), what="", sep="\n", quiet=T)
 		for (j in 1:length(txt))
 			{
 				if (grepl(">",txt[j]))
@@ -36,20 +37,25 @@ for (i in 1:length(segments))
 							}
 					}
 			}
-		write(txt, paste0("Genesis_of_DG/",gsub("2024","24_2",segments[i]),".fas"))
+		write(txt, paste0("Genesis_of_DG/",gsub("2025","25_2",segments[i]),".fas"))
 		tab2 = tab1[,c("Isolate_Id","Collection_Date","Location")]; colnames(tab2) = c("trait","collection_date","location")
 		for (j in 1:dim(tab2)[1]) tab2[j,"location"] = unlist(strsplit(tab2[j,"location"]," / "))[2]
-		write.table(tab2, paste0("Genesis_of_DG/",segments[i],".txt"), row.names=F, quote=F, sep="\t")
+		for (j in 1:dim(tab2)[1]) tab2[j,"location"] = gsub("Korea, Republic of","South Korea",tab2[j,"location"])
+		for (j in 1:dim(tab2)[1]) tab2[j,"location"] = gsub("Russian Federation","Russia",tab2[j,"location"])
+		write.table(tab2, paste0("Genesis_of_DG/",gsub("2025","25_2",segments[i]),".txt"), row.names=F, quote=F, sep="\t")
 	}
+# system("bash IQTREE_runs_1.sh") # to do rename/sort the IQTREE outputs
 samples_DG = read.table("Genesis_of_DG/All_DG_samples.txt", head=F)[,1]
-locations = read.table(paste0("Genesis_of_DG/ALL_03062024.txt"), sep="\t", head=T)
-countries = unique(locations[,"location"]); countries = countries[order(countries)]
+metadata1 = read.table(paste0("Genesis_of_DG/ALL_120225_2.txt"), sep="\t", head=T)
+metadata2 = read.table(paste0("Genesis_of_DG/PA_120225_2.txt"), sep="\t", head=T)
+metadata3 = read.table(paste0("Genesis_of_DG/PB2_120225_2.txt"), sep="\t", head=T)
+countries = unique(rbind(metadata1, metadata2, metadata3)[,"location"]); countries = countries[order(countries)]
 countries_colours = colorRampPalette(brewer.pal(11,"Spectral"))(length(countries))
-for (i in 1:length(segments))
+for (i in 1:length(segments)) # ".tre" files have to be preliminary midpoint rooted and re-organised in FigTree
 	{
-		locations = read.table(paste0("Genesis_of_DG/",segments[i],".txt"), sep="\t", head=T)
-		tre = midpoint.root(read.tree(paste0("Genesis_of_DG/",gsub("2024","24_2",segments[i]),".tre"))); rootHeight = max(nodeHeights(tre))
-		pdf(paste0("Genesis_of_DG/",gsub("2024","24_2",segments[i]),".pdf"), width=6, height=15); par(oma=c(0,0,0,0), mar=c(1,1,1,1))
+		locations = read.table(paste0("Genesis_of_DG/",gsub("2025","25_2",segments[i]),".txt"), sep="\t", head=T)
+		tre = read.nexus(paste0("Genesis_of_DG/",gsub("2025","25_2",segments[i]),".tre")); rootHeight = max(nodeHeights(tre))
+		pdf(paste0("Genesis_of_DG/",gsub("2025","25_2",segments[i]),".pdf"), width=6, height=14); par(oma=c(0,0,0,0), mar=c(0,1,0,1))
 		plot(tre, x.lim=c(0,rootHeight+(rootHeight/10)), show.tip.label=F, show.node.label=F, edge.width=0.5, cex=0.5, col="gray30", edge.color="gray30")
 		red = rgb(222,67,39,255,maxColorValue=255)
 		for (j in 1:dim(tre$edge)[1])
@@ -71,105 +77,91 @@ for (i in 1:length(segments))
 							}
 					}
 			}
-		add.scale.bar(x=0.000385, y=1.1, length=NULL, ask=F, lwd=0.5 , lcol ="gray30", cex=0.6)
 		if (i == 1)
 			{
-				legend(x=0.04, y=350, countries, text.col="gray30", pch=16, pt.cex=1.0, col=countries_colours, box.lty=0, cex=0.5, y.intersp=1.1)
-				legend(x=0.04, y=350, countries, text.col=rgb(0,0,0,0), pch=1, pt.cex=1.0, col="gray30", box.lty=0, cex=0.5, pt.lwd=0.3, y.intersp=1.1)
+				add.scale.bar(x=0.038, y=1.1, length=NULL, ask=F, lwd=0.5 , lcol ="gray30", cex=0.6)
+				legend(x=0.043, y=580, countries, text.col="gray30", pch=16, pt.cex=1.0, col=countries_colours, box.lty=0, cex=0.5, y.intersp=1.1)
+				legend(x=0.043, y=580, countries, text.col=rgb(0,0,0,0), pch=1, pt.cex=1.0, col="gray30", box.lty=0, cex=0.5, pt.lwd=0.3, y.intersp=1.1)
 			}
 		dev.off()
 	}
-	
-	# A.2. Second attempt on a restricted aligment (OK timing with BEAST)
+
+	# A.1. Analyses based on the alignment only including a restricted set of background sequences
 
 		# A.2.1. Preparation of the metadata files for the discrete phylogeographic analyses
 
-for (i in 1:length(segments))
+tab2 = read.table(paste0("Genesis_of_DG/ALL_120225_2.txt"), head=T, sep="\t")
+selected_clade = read.table(paste0("Genesis_of_DG/Selected_clade.txt"), head=F, sep="\t")
+	# see the clade highlighted in "ALL_120225_2.png" by a red arroiw
+tab3 = tab2[which(tab2[,"trait"]%in%selected_clade[,1]),]
+write.table(tab3, "Genesis_of_DG/ALL_120225_3.txt", row.names=F, quote=F, sep="\t")
+tab3 = read.table(paste0("Genesis_of_DG/ALL_120225_3.txt"), head=T, sep="\t"); txt3 = c()
+txt2 = scan(paste0("Genesis_of_DG/ALL_120225_2.fas"), what="", sep="\n", quiet=T); tmp1 = c()
+for (i in 1:length(txt2))
 	{
-		tab1 = read.csv(paste0("Genesis_of_DG/",segments[i],".csv"), sep=";", head=T)
-		txt2 = scan(paste0("Genesis_of_DG/",gsub("2024","24_2",segments[i]),".fas"), what="", sep="\n", quiet=T); sequence_IDs = c()
-		for (j in 1:length(txt2))
+		if (grepl(">",txt2[i]))
 			{
-				if ((grepl(">",txt2[j]))&&(gsub(">","",txt2[j])%in%tab1[,"Isolate_Id"])) sequence_IDs = c(sequence_IDs, gsub(">","",txt2[j]))
-			}
-		tab2 = tab1; tab2 = tab2[which(tab2[,"Isolate_Id"]%in%sequence_IDs),]
-		tab2 = tab2[,c("Isolate_Id","Collection_Date","Location")]; colnames(tab2) = c("trait","collection_date","location")
-		for (j in 1:dim(tab2)[1]) tab2[j,"location"] = unlist(strsplit(tab2[j,"location"]," / "))[2]
-		write.table(tab2, paste0("Genesis_of_DG/",gsub("2024","24_2",segments[i]),".txt"), row.names=F, quote=F, sep="\t")
-	}
-txt1 = scan(paste0("Genesis_of_DG/ALL_030624_2.fas"), what="", sep="\n", quiet=T)
-selected_samples = read.table(paste0("Genesis_of_DG/ALL_030624_3.txt"), head=F, sep="\t")
-	# see also the clade highlighted in "ALL_030624_2.png"
-tab2 = tab1[which(tab1[,"Isolate_Id"]%in%selected_samples[,1]),]; txt2 = c()
-for (i in 1:length(txt1))
-	{
-		if (grepl(">",txt1[i]))
-			{
-				if (gsub(">","",txt1[i])%in%selected_samples[,1])
+				tmp1 = c(tmp1, txt2[i])
+			}	else	{
+				if (grepl(">",txt2[i-1]))
 					{
-						txt2 = c(txt2, txt1[i], txt1[i+1])
+						tmp2 = txt2[i]
+					}
+				if (!grepl(">",txt2[i-1]))
+					{
+						tmp2 = paste0(tmp2,txt2[i])
+					}
+				if ((grepl(">",txt2[i+1]))|(i == length(txt2)))
+					{
+						tmp1 = c(tmp1, tmp2)
+						tmp2 = NULL
 					}
 			}
 	}
-write.csv(tab2, paste0("Genesis_of_DG/ALL_030624_3.csv"), row.names=F, quote=F)
-write(txt2, paste0("Genesis_of_DG/ALL_030624_3.fas"))
-tab3 = tab2[,c("Isolate_Id","Collection_Date","Location")]; colnames(tab3) = c("trait","collection_date","location")
-for (i in 1:dim(tab3)[1]) tab3[i,"location"] = unlist(strsplit(tab3[i,"location"]," / "))[2]
-write.table(tab3, paste0("Genesis_of_DG/ALL_030624_3.txt"), row.names=F, quote=F, sep="\t")
-
-tab3 = read.table(paste0("Genesis_of_DG/ALL_030624_3.txt"), head=T, sep="\t")
-for (i in 1:length(segments))
+txt2 = tmp1
+for (i in 1:length(txt2))
 	{
-		if (segments[i] == "ALL_03062024")
+		if (grepl(">",txt2[i]))
 			{
-				txt2 = scan(paste0("Genesis_of_DG/",gsub("2024","24_4",segments[i]),".fas"), what="", sep="\n", quiet=T)
-				# corresponds to the RDP alignment "All_RDP_analyses/ALL_030624_3_res/ALL_030624_3_without_recombinant_sequences.fas"
-			}	else	{
-				txt2 = scan(paste0("Genesis_of_DG/",gsub("2024","24_2",segments[i]),".fas"), what="", sep="\n", quiet=T)
-			}
-		txt3 = c(); sequence_IDs = c()
-		for (j in 1:length(txt2))
-			{
-				if ((grepl(">",txt2[j]))&&(gsub(">","",txt2[j])%in%tab3[,"trait"]))
+				if (gsub(">","",txt2[i])%in%tab3[,"trait"])
 					{
-						txt3 = c(txt3, txt2[j], txt2[j+1])
-						sequence_IDs = c(sequence_IDs, gsub(">","",txt2[j]))
+						txt3 = c(txt3, txt2[i], txt2[i+1])
 					}
 			}
-		if (segments[i] == "ALL_03062024")
-			{
-				print(samples_DG[which(!samples_DG%in%sequence_IDs)]) # none - ok
-			}
-		if (segments[i] != "ALL_03062024") write(txt3, paste0("Genesis_of_DG/",gsub("2024","24_3",segments[i]),".fas"))
-		tab3_mod = tab3; tab3_mod = tab3_mod[which(tab3_mod[,"trait"]%in%sequence_IDs),]
-		if (segments[i] == "ALL_03062024")
-			{
-				write.table(tab3_mod, paste0("Genesis_of_DG/",gsub("2024","24_4",segments[i]),".txt"), row.names=F, quote=F, sep="\t")
-			}	else	{
-				write.table(tab3_mod, paste0("Genesis_of_DG/",gsub("2024","24_3",segments[i]),".txt"), row.names=F, quote=F, sep="\t")
-			}
 	}
+write(txt3, paste0("Genesis_of_DG/ALL_120225_3.fas"))
+	
+		# A.2.2. Conducting the recombination analyses with the phi-test and RDP4
 
-		# A.2.2. Retrieving and annotating the MCC tree for each segment BEAST analysis
+txt4 = scan(paste0("Genesis_of_DG/ALL_120225_4.fas"), what="", sep="\n", quiet=T)
+	# corresponds to All_RDP_analyses/ALL_120225_3_res/ALL_120225_3_without_recombinant_sequences.fas
+tab3 = read.table(paste0("Genesis_of_DG/ALL_120225_3.txt"), head=T, sep="\t")
+selected_sequences = gsub(">","",txt4[which(grepl(">",txt4))])
+samples_DG = read.table("Genesis_of_DG/All_DG_samples.txt", head=F)[,1]
+print(samples_DG[which(!samples_DG%in%selected_sequences)]) # none - ok
+tab4 = tab3[which(tab3[,"trait"]%in%selected_sequences),]
+write.table(tab4, "Genesis_of_DG/ALL_120225_4.txt", row.names=F, quote=F, sep="\t")
+
+		# A.2.3. Retrieving and annotating the MCC tree for each segment BEAST analysis
 
 burnIns = rep(NA, length(segments))
-for (i in c(1,7,9)) # "ALL_03062024", "PA_03062024" and "PB2_03062024"
+for (i in 1:length(segments))
 	{
-		if (segments[i] == "ALL_03062024") fileName = paste0("Genesis_of_DG/",gsub("2024","24_4",segments[i]),".log")
-		if (segments[i] != "ALL_03062024") fileName = paste0("Genesis_of_DG/",gsub("2024","24_2",segments[i]),".log")		
+		if (segments[i] == "ALL_12022025") fileName = paste0("Genesis_of_DG/",gsub("2025","25_4",segments[i]),".log")
+		if (segments[i] != "ALL_12022025") fileName = paste0("Genesis_of_DG/",gsub("2025","25_2",segments[i]),".log")		
 		txt = scan(fileName, what="", sep="\n", quiet=T); txt = txt[length(txt)]
 		nberOfSampledTrees = as.numeric(unlist(strsplit(txt,"\t"))[1])/100000; burnIns[i] = (nberOfSampledTrees/10)+1
 	}
-for (i in c(1,7,9))
+for (i in 1:length(segments))
 	{
-		if (segments[i] == "ALL_03062024")
+		if (segments[i] == "ALL_12022025")
 			{
-				system(paste0("Genesis_of_DG/BEAST_v_1_10_4/bin/treeannotator -burninTrees ",round(burnIns[i])," -heights keep Genesis_of_DG/",gsub("2024","24_4",segments[i]),".trees Genesis_of_DG/",gsub("2024","24_4",segments[i]),"_NEW.tree"), ignore.stdout=F, ignore.stderr=F) # MCC trees to be re-organised with CMD+U in FigTree
+				system(paste0("Genesis_of_DG/BEAST_v_1_10_4/bin/treeannotator -burninTrees ",round(burnIns[i])," -heights keep Genesis_of_DG/",gsub("2025","25_4",segments[i]),".trees Genesis_of_DG/",gsub("2025","25_4",segments[i]),"_NEW.tree"), ignore.stdout=F, ignore.stderr=F) # MCC trees to be re-organised with CMD+U in FigTree
 			}	else	{
-				system(paste0("Genesis_of_DG/BEAST_v_1_10_4/bin/treeannotator -burninTrees ",round(burnIns[i])," -heights keep Genesis_of_DG/",gsub("2024","24_2",segments[i]),".trees Genesis_of_DG/",gsub("2024","24_2",segments[i]),"_NEW.tree"), ignore.stdout=F, ignore.stderr=F) # MCC trees to be re-organised with CMD+U in FigTree				
+				system(paste0("Genesis_of_DG/BEAST_v_1_10_4/bin/treeannotator -burninTrees ",round(burnIns[i])," -heights keep Genesis_of_DG/",gsub("2025","25_2",segments[i]),".trees Genesis_of_DG/",gsub("2025","25_2",segments[i]),"_NEW.tree"), ignore.stdout=F, ignore.stderr=F) # MCC trees to be re-organised with CMD+U in FigTree				
 			}
 	}
-		# Information retrieved from the three MCC trees:
+		# Information retrieved from the three MCC trees (TO BE UPDATED):
 			# - most probable ancestral location inferred for the most recent common ancestor of the DG samples clade: Sweden (concatenated minus PA and PB2,
 			#   with a posterior probability = 0.998), and Germany (for both PA and PB2, with a posterior probability >0.999 for both)
 			# - time of the most recent common ancestor of the DG samples clade: 2023.65 (concatenated minus PA and PB2, 95% HPD = [2023.56-2023.73]), 
@@ -177,17 +169,16 @@ for (i in c(1,7,9))
 
 		# A.2.3. Visualisation of the discrete phylogeographic reconstruction per segment
 
-locations = read.table(paste0("Genesis_of_DG/ALL_03062024.txt"), sep="\t", head=T)
 samples_DG = read.table("Genesis_of_DG/All_DG_samples.txt", head=F)[,1]
-for (h in c(1,7,9))
+for (h in 1:length(segments))
 	{
-		if (segments[h] == "ALL_03062024")
+		if (segments[h] == "ALL_12022025")
 			{
-				tab3 = read.table(paste0("Genesis_of_DG/",gsub("2024","24_4",segments[h]),".txt"), head=T, sep="\t")
-				mcc_tre = readAnnotatedNexus(paste0("Genesis_of_DG/",gsub("2024","24_4",segments[h]),".tree"))
+				tab3 = read.table(paste0("Genesis_of_DG/",gsub("2025","25_4",segments[h]),".txt"), head=T, sep="\t")
+				mcc_tre = readAnnotatedNexus(paste0("Genesis_of_DG/",gsub("2025","25_4",segments[h]),".tree"))
 			}	else	{
-				tab3 = read.table(paste0("Genesis_of_DG/",gsub("2024","24_2",segments[h]),".txt"), head=T, sep="\t")
-				mcc_tre = readAnnotatedNexus(paste0("Genesis_of_DG/",gsub("2024","24_2",segments[h]),".tree"))				
+				tab3 = read.table(paste0("Genesis_of_DG/",gsub("2025","25_2",segments[h]),".txt"), head=T, sep="\t")
+				mcc_tre = readAnnotatedNexus(paste0("Genesis_of_DG/",gsub("2025","25_2",segments[h]),".tree"))				
 			}
 		for (i in 0:length(mcc_tre$annotations))
 			{
@@ -245,11 +236,11 @@ for (h in c(1,7,9))
 				if (mcc_tre$edge[i,2]%in%mcc_tre$edge[,1]) tipNodes = c(tipNodes, FALSE)
 			}
 		root_countries_prob[root_countries_prob[]<0.05] = 0; countries_prob[countries_prob[]<0.05] = 0
-		if (segments[h] == "ALL_03062024")
+		if (segments[h] == "ALL_12022025")
 			{
-				pdf(paste0("Genesis_of_DG/",gsub("2024","24_4",segments[h]),"_NEW.pdf"), width=8, height=4); # dev.new(width=8, height=4)
+				pdf(paste0("Genesis_of_DG/",gsub("2025","25_4",segments[h]),"_NEW.pdf"), width=8, height=4); # dev.new(width=8, height=4)
 			}	else	{
-				pdf(paste0("Genesis_of_DG/",gsub("2024","24_2",segments[h]),"_NEW.pdf"), width=8, height=4); # dev.new(width=8, height=4)
+				pdf(paste0("Genesis_of_DG/",gsub("2025","25_2",segments[h]),"_NEW.pdf"), width=8, height=4); # dev.new(width=8, height=4)
 			}
 		par(mar=c(0.2,2,0,0), oma=c(0,0,0,0), mgp=c(0,0.1,0), lwd=0.2, bty="o", col="gray30"); plottingRootNode = TRUE
 		plot(mcc_tre, show.tip.label=F, show.node.label=F, edge.width=0.5, cex=0.6, align.tip.label=3, direction="downwards",
@@ -326,7 +317,7 @@ for (h in c(1,7,9))
 				legend(x=155, y=2.5, countries, text.col="gray30", pch=16, pt.cex=1.2, col=colours, box.lty=0, cex=0.6, x.intersp=0.8, y.intersp=1.1)
 				legend(x=155, y=2.5, countries, text.col=rgb(0,0,0,0), pch=1, pt.cex=1.2, col="gray30", box.lty=0, cex=0.6, pt.lwd=0.3, x.intersp=0.8, y.intersp=1.1)
 			}
-		if (h == 7)
+		if (h == 2)
 			{
 				abline(h=mostRecentSamplingDatum-2010, lwd=1, col="gray90", lty=2)
 				abline(h=mostRecentSamplingDatum-2015, lwd=1, col="gray90", lty=2)
@@ -337,7 +328,7 @@ for (h in c(1,7,9))
 				legend(x=450, y=17, countries, text.col="gray30", pch=16, pt.cex=1.2, col=colours, box.lty=0, cex=0.6, x.intersp=0.8, y.intersp=1.1)
 				legend(x=450, y=17, countries, text.col=rgb(0,0,0,0), pch=1, pt.cex=1.2, col="gray30", box.lty=0, cex=0.6, pt.lwd=0.3, x.intersp=0.8, y.intersp=1.1)
 			}
-		if (h == 9)
+		if (h == 3)
 			{
 				abline(h=mostRecentSamplingDatum-1990, lwd=1, col="gray90", lty=2)
 				abline(h=mostRecentSamplingDatum-2000, lwd=1, col="gray90", lty=2)
@@ -354,59 +345,62 @@ for (h in c(1,7,9))
 
 # B. Analysis of the spread
 
-localTreesDirectory = "Spread_of_DG/ALL_030624_ext"; nberOfExtractionFiles = 1000
-collection_dates = read.table("Spread_of_DG/ALL_030624_2.txt", head=T)[,"collection_date"]
+localTreesDirectory = "Spread_of_DG/ALL_02122024_ext"; nberOfExtractionFiles = 1000
+collection_dates = read.table("Spread_of_DG/ALL_021224_2.txt", head=T)[,"collection_date"]
 mostRecentSamplingDatum = max(decimal_date(ymd(collection_dates)))
 
 	# B.1. Extracting the spatio-temporal information embedded in posterior trees
 
 source("Extractions_1.r") # for the MCC tree
 source("Extractions_2.r") # for the posterior trees
-nberOfTreesToSample = nberOfExtractionFiles; burnIn = 101
-allTrees1 = readAnnotatedNexus("Spread_of_DG/ALL_030624_2.trees")
+nberOfTreesToSample = nberOfExtractionFiles; burnIn = 251
+allTrees1 = readAnnotatedNexus("Spread_of_DG/ALL_021224_2.trees")
 allTrees2 = allTrees1[(burnIn+1):length(allTrees1)]
-
 for (i in 1:length(allTrees2))
 	{
 		csv = Extractions_2(allTrees2[[i]], mostRecentSamplingDatum)
 		write.csv(csv, paste0(localTreesDirectory,"/TreeExtractions_",i,".csv"), row.names=F, quote=F)
 	}
-mcc_tre = readAnnotatedNexus("Spread_of_DG/ALL_030624_2.tree")
+mcc_tre = readAnnotatedNexus("Spread_of_DG/ALL_021224_2.tree")
 mcc_tab = Extractions_1(mcc_tre, mostRecentSamplingDatum)
-write.csv(mcc_tab, "Spread_of_DG/ALL_030624_2.csv", row.names=F, quote=F)
+write.csv(mcc_tab, "Spread_of_DG/ALL_021224_2.csv", row.names=F, quote=F)
 
 	# B.2. Estimating the dispersal statistics associated with H5N1 DG lineages
 
-timeSlices = 100; onlyTipBranches = F; showingPlots = F; nberOfCores = 1; slidingWindow = 1/24
-outputName = paste0("Spread_of_DG/Dispersal_statistics/ALL_030624")
+timeSlices = 100; onlyTipBranches = F; showingPlots = F; nberOfCores = 10; slidingWindow = 1/24
+outputName = paste0("Spread_of_DG/Dispersal_statistics/ALL_021224")
 spreadStatistics(localTreesDirectory, nberOfExtractionFiles, timeSlices, onlyTipBranches, showingPlots, outputName, nberOfCores, slidingWindow)
 
-mat = read.table("Spread_of_DG/Dispersal_statistics/ALL_030624_estimated_dispersal_statistics.txt", head=T)
+mat = read.table("Spread_of_DG/Dispersal_statistics/ALL_021224_estimated_dispersal_statistics.txt", head=T)
 vS1 = mat[,"weighted_diffusion_coefficient"]; HPD1 = round(HDInterval::hdi(vS1)[1:2],0)
 vS2 = mat[,"isolation_by_distance_signal_rP2"]; HPD2 = round(HDInterval::hdi(vS2)[1:2],3)
 cat("WDC = ",round(median(vS1),0)," km2/year (95% HPD = [",HPD1[1],", ",HPD1[2],"])",sep="")
-	# WDC = 193930 km2/year (95% HPD = [132874, 262927])
+	# WDC = XXXX km2/year (95% HPD = [XXXX, XXXX])
 cat("IBD (rP2) = ",round(median(vS2),3)," (95% HPD = [",HPD2[1],", ",HPD2[2],"])",sep="")
-	# IBD (rP2) = 0.355 (95% HPD = [0.275, 0.438])
+	# IBD (rP2) = XXXX (95% HPD = [XXXX, XXXX])
 
 	# B.3. Mapping the inferred dispersal history of inferred H5N1 DG lineages
 
-e_Palearctic = extent(-13, 150, 35, 73); e_Europe = extent(-13, 55, 35, 73); e_studyArea_1 = extent(-11, 29, 41.5, 65); e_studyArea_2 = extent(-3, 22, 45, 61)
-countries1 = crop(gBuffer(shapefile("Spread_of_DG/Different_shapefiles/World_countries_shps/World_countries_shapefile.shp"), byid=T, width=0), e_Palearctic)
+e_Palearctic = extent(-13, 150, 35, 73); e_Europe = extent(-13, 55, 35, 73)
+e_studyArea_1 = extent(-11, 29, 41.5, 65); e_studyArea_2 = extent(-3, 22, 45, 61); e_studyArea_3 = extent(-3, 22, 46, 62)
+countries1 = crop(shapefile("Spread_of_DG/Different_shapefiles/World_countries_shps/World_countries_shapefile.shp"), e_Palearctic)
 borders1 = crop(shapefile("Spread_of_DG/Different_shapefiles/International_borders/Only_international_borders.shp"), e_Palearctic)
 coasts1 = crop(shapefile("Spread_of_DG/Different_shapefiles/Coast_lines_borders/Only_coast_lines_borders.shp"), e_Palearctic)
 countries2 = crop(countries1, e_Europe); borders2 = crop(borders1, e_Europe); coasts2 = crop(coasts1, e_Europe)
 countries3 = crop(countries1, e_studyArea_1); borders3 = crop(borders1, e_studyArea_1); coasts3 = crop(coasts1, e_studyArea_1)
 countries4 = crop(countries1, e_studyArea_2); borders4 = crop(borders1, e_studyArea_2); coasts4 = crop(coasts1, e_studyArea_2)
+countries5 = crop(countries1, e_studyArea_3); borders5 = crop(borders1, e_studyArea_3); coasts5 = crop(coasts1, e_studyArea_3)
 
-mcc = read.csv("Spread_of_DG/ALL_030624_2.csv", head=T)
+mcc = read.csv("Spread_of_DG/ALL_021224_2.csv", head=T)
 mcc = mcc[order(mcc[,"startYear"]),]; mcc1 = mcc[1,]; mcc2 = mcc[c(2:dim(mcc)[1]),]
 mcc2 = mcc2[order(mcc2[,"endYear"]),]; mcc = rbind(mcc1,mcc2)
-mcc_tre = readAnnotatedNexus("Spread_of_DG/ALL_030624_2.tree"); mcc_tre$tip.label = gsub("'","",mcc_tre$tip.label)
+mcc_tre = readAnnotatedNexus("Spread_of_DG/ALL_021224_2.tree"); mcc_tre$tip.label = gsub("'","",mcc_tre$tip.label)
 rootHeight = max(nodeHeights(mcc_tre)); root_time = mostRecentSamplingDatum-rootHeight
 minYear = mostRecentSamplingDatum-mcc_tre$root.annotation$`height_95%_HPD`[[2]]; maxYear = mostRecentSamplingDatum
 hpd95_rootHeight = c(mcc_tre$root.annotation$`height_95%_HPD`[[2]],mcc_tre$root.annotation$`height_95%_HPD`[[1]])
-print(c(root_time,mostRecentSamplingDatum-hpd95_rootHeight)) # root time = 2023.78 (95% HPD = [2023.63, 2023.82])
+print(c(root_time,mostRecentSamplingDatum-hpd95_rootHeight)) # root time = 2023.59 (95% HPD = [2023.46, 2023.68])
+selectedLabels = c("2023-07-01","2023-09-01","2023-11-01","2024-01-01","2024-03-01","2024-05-01")
+selectedDates = c(minYear, decimal_date(ymd(selectedLabels)), maxYear); selectedLabels = c("", selectedLabels, "")
 colour_scale = met.brewer(name="Hiroshige", n=111, type="continuous")[1:101]
 
 prob = 0.95; precision = 1/24; startDatum = minYear
@@ -421,7 +415,7 @@ for (i in 1:length(polygons))
 		polygons_colours[i] = paste0(colour_scale[polygon_index],"20")
 	}
 
-pdf("Spread_of_DG/ALL_030624_2_NEW1.pdf", width=4.0, height=4.05); # dev.new(width=4.0, height=4.05)
+pdf("Spread_of_DG/ALL_021224_2_NEW1.pdf", width=4.0, height=4.28); # dev.new(width=4.0, height=4.05)
 par(mar=c(0.8,0,0,0.01), oma=c(0,0,0,0), mgp=c(0,0.1,0), lwd=0.2, bty="o", col="gray30"); plottingRootNode = TRUE
 plot(mcc_tre, show.tip.label=F, show.node.label=F, edge.width=0.5, cex=0.6, align.tip.label=3, 
 	 x.lim=c(minYear-(maxYear-max(nodeHeights(mcc_tre))), max(nodeHeights(mcc_tre))+0.085), col="gray30", edge.color="gray30")
@@ -480,17 +474,15 @@ for (j in 1:dim(mcc_tre$edge)[1])
 				tiplabels(tipLabel, tip=mcc_tre$edge[j,2], col="gray30", frame="none", bg=NULL, cex=0.35, adj=c(0.0,0.5))
 			}
 	}
-selectedLabels = c("2023-10-01","2023-12-01","2024-02-01"); selectedDates = decimal_date(ymd(selectedLabels))
-selectedDates = c(minYear, selectedDates, maxYear); selectedLabels = c("", selectedLabels, "")
 axis(lwd=0.3, at=selectedDates-root_time, labels=selectedLabels, cex=0.40, cex.axis=0.40, mgp=c(0,-0.3,-0.3),
 	 lwd.tick=0.3, col.axis="gray30", col.lab="gray30", col="gray30", tck=-0.008, side=1)
 dev.off()
 
-selectedLabels = c("2023-11-01","2023-12-01","2024-01-01"); selectedDates = decimal_date(ymd(selectedLabels))
+selectedLabels = c("2023-09-01","2023-11-01","2024-01-01"); selectedDates = decimal_date(ymd(selectedLabels))
 cutOffs = c(selectedDates, maxYear); croppingPolygons = FALSE; plottingAllNodes = FALSE
 for (h in length(cutOffs))
 	{
-		pdf(paste0("Spread_of_DG/ALL_030624_2_NEW2.pdf"), width=5.2, height=5)
+		pdf(paste0("Spread_of_DG/ALL_021224_2_NEW2.pdf"), width=5.2, height=5)
 		par(oma=c(0,0,0,0), mar=c(0.8,0.7,1,0.4), mgp=c(0,0.1,0), lwd=0.2, bty="o")
 		plot(countries3, col="gray90", border=NA, ann=F, axes=F)
 		plot(borders3, col="white", lwd=0.3, add=T)
@@ -523,11 +515,11 @@ for (h in length(cutOffs))
 					{
 						for (j in 1:length(polygons[[i]]@polygons))
 							{
-								polygons[[i]]@polygons[[j]] = checkPolygonsHoles(polygons[[i]]@polygons[[j]])
+								# polygons[[i]]@polygons[[j]] = checkPolygonsHoles(polygons[[i]]@polygons[[j]])
 							}
 						pol = polygons[[i]]; crs(pol) = crs(countries2)
 						if (croppingPolygons == TRUE) pol = crop(pol, countries2)
-						plot(pol, axes=F, col=polygons_colours[[i]][j], add=T, border=NA)
+						plot(pol, axes=F, col=polygons_colours[i], add=T, border=NA)
 					}
 			}
 		for (i in 1:dim(mcc)[1])
@@ -562,9 +554,9 @@ for (h in length(cutOffs))
 		dev.off()
 	}
 
-selectedLabels = c("2023-11-01","2023-12-01","2024-01-01"); selectedDates = decimal_date(ymd(selectedLabels))
+selectedLabels = c("2023-09-01","2023-11-01","2024-01-01"); selectedDates = decimal_date(ymd(selectedLabels))
 cutOffs = c(selectedDates, maxYear); croppingPolygons = FALSE; plottingAllNodes = FALSE
-pdf(paste0("Spread_of_DG/ALL_030624_2_NEW3.pdf"), width=11.5, height=3)
+pdf(paste0("Spread_of_DG/ALL_021224_2_NEW3.pdf"), width=11.5, height=3)
 par(mfrow=c(1,4), oma=c(0,0,0.1,0), mar=c(0.1,0.1,0.1,0.1), mgp=c(0,0.1,0), lwd=0.2, bty="o")
 selectedLabels = c(selectedLabels, as.character(max(ymd(collection_dates))))
 for (h in 1:length(cutOffs))
@@ -594,7 +586,7 @@ for (h in 1:length(cutOffs))
 					{
 						for (j in 1:length(polygons[[i]]@polygons))
 							{
-								polygons[[i]]@polygons[[j]] = checkPolygonsHoles(polygons[[i]]@polygons[[j]])
+								# polygons[[i]]@polygons[[j]] = checkPolygonsHoles(polygons[[i]]@polygons[[j]])
 							}
 						pol = polygons[[i]]; crs(pol) = crs(countries2)
 						if (croppingPolygons == TRUE) pol = crop(pol, countries2)
@@ -630,8 +622,10 @@ for (h in 1:length(cutOffs))
 					}
 			}
 		rect(-2.9, 59.5, 4, 60.9, lwd=0.0, border=NA, col="white")
+		# rect(-2.9, 60.5, 4, 61.9, lwd=0.0, border=NA, col="white")
 		mtext(selectedLabels[h], cex=0.6, col="gray30", at=0.8, line=-2.5)
 		rect(-3, 45, 22, 61, lwd=0.2, border="gray30")
+		# rect(-3, 46, 22, 62, lwd=0.2, border="gray30")
 	}
 dev.off()
 
