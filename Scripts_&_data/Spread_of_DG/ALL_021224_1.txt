@@ -1,0 +1,1 @@
+﻿The phi test did not find statistically significant evidence for recombination (p = 0.4778)
