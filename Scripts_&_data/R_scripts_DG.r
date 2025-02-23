@@ -141,6 +141,8 @@ samples_DG = read.table("Genesis_of_DG/All_DG_samples.txt", head=F)[,1]
 print(samples_DG[which(!samples_DG%in%selected_sequences)]) # none - ok
 tab4 = tab3[which(tab3[,"trait"]%in%selected_sequences),]
 write.table(tab4, "Genesis_of_DG/ALL_120225_4.txt", row.names=F, quote=F, sep="\t")
+tab4 = read.table("Genesis_of_DG/ALL_120225_4.txt", head=T, sep="\t")
+mostRecentSamplingDatum = max(decimal_date(ymd(tab4[,"collection_date"]))) # 2024.481
 
 		# A.2.3. Retrieving and annotating the MCC tree for each segment BEAST analysis
 
@@ -150,9 +152,9 @@ for (i in 1:length(segments))
 		if (segments[i] == "ALL_12022025") fileName = paste0("Genesis_of_DG/",gsub("2025","25_4",segments[i]),".log")
 		if (segments[i] != "ALL_12022025") fileName = paste0("Genesis_of_DG/",gsub("2025","25_2",segments[i]),".log")		
 		txt = scan(fileName, what="", sep="\n", quiet=T); txt = txt[length(txt)]
-		nberOfSampledTrees = as.numeric(unlist(strsplit(txt,"\t"))[1])/100000; burnIns[i] = (nberOfSampledTrees/10)+1
+		nberOfSampledTrees = as.numeric(unlist(strsplit(txt,"\t"))[1])/100000; burnIns[i] = round((nberOfSampledTrees/10)+1)
 	}
-for (i in 1:length(segments))
+for (i in 2:length(segments))
 	{
 		if (segments[i] == "ALL_12022025")
 			{
@@ -164,8 +166,8 @@ for (i in 1:length(segments))
 		# Information retrieved from the three MCC trees (TO BE UPDATED):
 			# - most probable ancestral location inferred for the most recent common ancestor of the DG samples clade: Sweden (concatenated minus PA and PB2,
 			#   with a posterior probability = 0.998), and Germany (for both PA and PB2, with a posterior probability >0.999 for both)
-			# - time of the most recent common ancestor of the DG samples clade: 2023.65 (concatenated minus PA and PB2, 95% HPD = [2023.56-2023.73]), 
-			#   2023.60 (PA, 95% HPD = [2023.41-2023.77]), and 2023.12 (PB2, 95% HPD = [2022.90-2023.38])
+			# - time of the most recent common ancestor of the DG samples clade: 2023.56 (concatenated minus PA and PB2, 95% HPD = [2023.44-2023.65]), 
+			#   2023.60 (PA, 95% HPD = [2023.41-2023.77]), and 2023.12 (PB2, 95% HPD = [2022.90-2023.38]) - TO BE UPDATED FOR PA AND PB2 !!!!
 
 		# A.2.3. Visualisation of the discrete phylogeographic reconstruction per segment
 
@@ -274,7 +276,7 @@ for (h in 1:length(segments))
 						if ((sum(countries_prob[i,]==1) > 0)|(sum(countries_prob[i,]==0) == (length(countries)-1)))
 							{
 								nodelabels(node=mcc_tre$edge[i,2], cex=0.15, pie=t(countries_prob[i,]), piecol=colours)
-							}	else		{
+							}	else	{
 								nodelabels(node=mcc_tre$edge[i,2], cex=0.45, pie=t(countries_prob[i,]), piecol=colours)
 							}	
 					}
@@ -375,9 +377,9 @@ mat = read.table("Spread_of_DG/Dispersal_statistics/ALL_021224_estimated_dispers
 vS1 = mat[,"weighted_diffusion_coefficient"]; HPD1 = round(HDInterval::hdi(vS1)[1:2],0)
 vS2 = mat[,"isolation_by_distance_signal_rP2"]; HPD2 = round(HDInterval::hdi(vS2)[1:2],3)
 cat("WDC = ",round(median(vS1),0)," km2/year (95% HPD = [",HPD1[1],", ",HPD1[2],"])",sep="")
-	# WDC = XXXX km2/year (95% HPD = [XXXX, XXXX])
+	# WDC = 110470 km2/year (95% HPD = [83655, 146397])
 cat("IBD (rP2) = ",round(median(vS2),3)," (95% HPD = [",HPD2[1],", ",HPD2[2],"])",sep="")
-	# IBD (rP2) = XXXX (95% HPD = [XXXX, XXXX])
+	# IBD (rP2) = 0.325 (95% HPD = [0.270, 0.383])
 
 	# B.3. Mapping the inferred dispersal history of inferred H5N1 DG lineages
 
@@ -479,7 +481,7 @@ axis(lwd=0.3, at=selectedDates-root_time, labels=selectedLabels, cex=0.40, cex.a
 dev.off()
 
 selectedLabels = c("2023-09-01","2023-11-01","2024-01-01"); selectedDates = decimal_date(ymd(selectedLabels))
-cutOffs = c(selectedDates, maxYear); croppingPolygons = FALSE; plottingAllNodes = FALSE
+cutOffs = c(decimal_date(ymd( c("2023-09-02","2023-11-02","2024-01-02"))), maxYear); croppingPolygons = FALSE; plottingAllNodes = FALSE
 for (h in length(cutOffs))
 	{
 		pdf(paste0("Spread_of_DG/ALL_021224_2_NEW2.pdf"), width=5.2, height=5)
@@ -554,8 +556,6 @@ for (h in length(cutOffs))
 		dev.off()
 	}
 
-selectedLabels = c("2023-09-01","2023-11-01","2024-01-01"); selectedDates = decimal_date(ymd(selectedLabels))
-cutOffs = c(selectedDates, maxYear); croppingPolygons = FALSE; plottingAllNodes = FALSE
 pdf(paste0("Spread_of_DG/ALL_021224_2_NEW3.pdf"), width=11.5, height=3)
 par(mfrow=c(1,4), oma=c(0,0,0.1,0), mar=c(0.1,0.1,0.1,0.1), mgp=c(0,0.1,0), lwd=0.2, bty="o")
 selectedLabels = c(selectedLabels, as.character(max(ymd(collection_dates))))
