@@ -167,7 +167,7 @@ for (i in 2:length(segments))
 			# - most probable ancestral location inferred for the most recent common ancestor of the DG samples clade: Sweden (concatenated minus PA and PB2,
 			#   with a posterior probability = 0.998), and Germany (for both PA and PB2, with a posterior probability >0.999 for both)
 			# - time of the most recent common ancestor of the DG samples clade: 2023.56 (concatenated minus PA and PB2, 95% HPD = [2023.44-2023.65]), 
-			#   2023.60 (PA, 95% HPD = [2023.41-2023.77]), and 2023.12 (PB2, 95% HPD = [2022.90-2023.38]) - TO BE UPDATED FOR PA AND PB2 !!!!
+			#   22023.50 (PA, 95% HPD = [2023.28-2023.73]), and 2023.02 (PB2, 95% HPD = [2022.71-2023.30])
 
 		# A.2.3. Visualisation of the discrete phylogeographic reconstruction per segment
 
